@@ -16,6 +16,43 @@ output:
 
 ---
 
+#### Distribution Tails:
+
+Criteria for **thick tails** (or **heavy tails**):
+
+**Excess Kurtosis:**
+
+Kurtosis measures the "peakedness" and "tailedness" of a distribution.  high kurtosis can be due to either a sharp peak or thick tails, or a combination of both. A distribution with excess kurtosis greater than 0 is considered leptokurtic (thick-tailed), while a distribution with excess kurtosis less than 0 is considered platykurtic (thin-tailed).
+The normal distribution has excess kurtosis of 0.
+
+**Tail Index:**
+
+The tail index is a measure of how quickly the tails of a distribution decay. A distribution with a tail index less than 2 is considered thick-tailed, while a distribution with a tail index greater than 2 is considered thin-tailed. The normal distribution has a tail index of 3.
+
+
+**Comparison to the Normal Distribution:**
+
+If the tails of a distribution are significantly heavier than the tails of a normal distribution with the same mean and variance, it is considered thick-tailed. This can be assessed visually by comparing the tails of the two distributions or by using statistical tests such as the **Jarque-Bera test**.
+
+Heavy-Tailed Properties:
+
+A distribution is considered thick-tailed if it exhibits certain properties, such as: Infinite variance, infinite higher moments, low convergence of the sample mean to the population mean.
+
+**Fat tails** implies **power-law**:
+
+A power-law distribution is one where the probability of an event is proportional to a power of the event magnitude. This means that the probability of extreme events is much higher than in a normal distribution.
+
+Characteristics of power-law distributions:
+
+Scale invariance: The distribution looks the same regardless of the scale at which it is viewed.
+
+Lack of a characteristic scale: There is no typical value or average that can describe the distribution.
+
+Long tails: The tails of the distribution decay slowly, leading to a higher probability of extreme events.
+
+
+---
+
 ### Power Law Distributions:
 
 ---
@@ -282,7 +319,10 @@ DiscretePlot[
 
 ---
 
-#### [Subexponential distributions](https://rigorandrelevance.wordpress.com/2013/12/05/catastrophes-conspiracies-and-subexponential-distributions-part-i/):
+### **[Subexponential distributions](https://rigorandrelevance.wordpress.com/2013/12/05/catastrophes-conspiracies-and-subexponential-distributions-part-i/)** / Thick--tailed distributions:
+
+---
+
 
 There are three important subclasses of heavy-tailed distributions: the fat-tailed distributions, the long-tailed distributions and the subexponential distributions. In practice, all commonly used heavy-tailed distributions belong to the subexponential class.
 
@@ -433,10 +473,36 @@ The Erlang distribution is subexponential. From Wikipedia:
 
 > The Erlang distribution is the distribution of a sum of $k$ independent exponential variables with mean $1/λ$ each. Equivalently, it is the distribution of the time until the $k$-th event of a Poisson process with a rate of $λ$. The Erlang and Poisson distributions are complementary, in that while the Poisson distribution counts the events that occur in a fixed amount of time, the Erlang distribution counts the amount of time until the occurrence of a fixed number of events. When $k=1$, the distribution simplifies to the exponential distribution. The Erlang distribution is a special case of the gamma distribution in which the shape of the distribution is discretized.
 
+#### Gamma distribution:
+
+The gamma distribution can be thick-tailed or thin-tailed depending on its shape parameter (α).
+
+Thin-tailed: When α is greater than 1, the gamma distribution has a relatively thin tail. This means that extreme values are less likely to occur.
+
+Thick-tailed: When α is less than or equal to 1, the gamma distribution has a thicker tail, indicating a higher probability of extreme values.
+
+The gamma distribution is connected to a number of different distributions:
+
+**Chi-Squared Distribution**: A special case of the gamma distribution with $α = k/2$ and $β = 2.$ This connection is crucial in statistical hypothesis testing.
+
+**Exponential Distribution**: A special case of the gamma distribution with $α = 1$ and $β = λ.$ This distribution is used to model waiting times between events.
+
+**Erlang Distribution:** A special case of the gamma distribution with α being a positive integer. This distribution is used to model the sum of independent exponential random variables.
+
+It is used in:
+
+Waiting Times: The gamma distribution is often used to model waiting times between events, especially when the events are not independent or when the waiting time is not exponentially distributed.
+
+Survival Analysis: In survival analysis, the gamma distribution can be used to model the time to an event of interest, such as the time to failure of a component or the time to death.
+
+Insurance: The gamma distribution is used in insurance modeling to represent the distribution of claim amounts.
+
+Engineering: In engineering, the gamma distribution is used to model various processes, such as the time between failures of equipment or the distribution of material properties.
+
 
 ---
 
-##### **Subexponential distributions:**
+##### **Subexponential distributions** / Thick--tailed distributions:
 
 From these [CalTech notes](http://users.cms.caltech.edu/~adamw/papers/2013-SIGMETRICS-heavytails.pdf)...
 
