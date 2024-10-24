@@ -308,6 +308,7 @@ All commonly used heavy-tailed distributions are subexponential. From [Wikipedia
 7. Fréchet distribution (notice that the Gumbel is not in the list)
 8. q-Gaussian distribution
 9. Log-Cauchy distribution ("super heavy tail" - heavier than Pareto)
+10 Erlang
 
 **Two-tailed:**
 
@@ -425,6 +426,12 @@ Environmental Science: The Cauchy distribution can be used to model extreme weat
 #### Log-Cauchy distribution:
 
 A log-Cauchy distribution is a probability distribution of a random variable whose logarithm is distributed in accordance with a Cauchy distribution. If $X$ is a random variable with a Cauchy distribution, then $Y = \exp(X)$ has a log-Cauchy distribution.
+
+#### Erlang distribution:
+
+The Erlang distribution is subexponential. From Wikipedia:
+
+> The Erlang distribution is the distribution of a sum of $k$ independent exponential variables with mean $1/λ$ each. Equivalently, it is the distribution of the time until the $k$-th event of a Poisson process with a rate of $λ$. The Erlang and Poisson distributions are complementary, in that while the Poisson distribution counts the events that occur in a fixed amount of time, the Erlang distribution counts the amount of time until the occurrence of a fixed number of events. When $k=1$, the distribution simplifies to the exponential distribution. The Erlang distribution is a special case of the gamma distribution in which the shape of the distribution is discretized.
 
 
 ---
