@@ -487,7 +487,7 @@ The gamma distribution can be thick-tailed or thin-tailed depending on its shape
 
 $$f_X (x)=\frac{\beta^\alpha}{\color{orange}\Gamma(\alpha)} \color{red}{x^{\alpha - 1}\,e^{-\beta x}} $$
 
-with the gamma function being
+essentially the integrand of the gamma function:
 
 $$\Gamma(z) = \int_0^\infty \color{red}{t^{z-1} \, e^{-t}}\;dt$$
 
@@ -496,6 +496,8 @@ Thin-tailed: When α is greater than 1, the gamma distribution has a relatively 
 Thick-tailed: When α is less than or equal to 1, the gamma distribution has a thicker tail, indicating a higher probability of extreme values.
 
 The gamma distribution is explained [here](https://probabilityandstats.wordpress.com/tag/gamma-distribution).
+
+Factorials often appear in discrete probability distributions, such as the binomial and Poisson distributions. The gamma function's connection to factorials means it can be used to derive continuous probability distributions, like the gamma and beta distributions. This ability to transition between discrete and continuous distributions enhances our toolkit in probability and statistics.
 
 INTUITION: The pdf is just the integrand of the gamma function, and in it there is a polynomial form on the random variable, which tends to give the pdf an initial smooth upswing. Quickly, the exponential part of the pdf kicks in and kills the function. So they tend to have a positive skew. As in the case of the Weibull distribution with $k=1$, the elimination of the polynomial part turns the distribution like an exponential. Here are some of the examples discussed below, showing this tendency:
 

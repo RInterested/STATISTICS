@@ -929,7 +929,7 @@ on its shape parameter (α) and a rate parameter (<span class="math inline">\(\b
 <p><span class="math display">\[f_X
 (x)=\frac{\beta^\alpha}{\color{orange}\Gamma(\alpha)}
 \color{red}{x^{\alpha - 1}\,e^{-\beta x}} \]</span></p>
-<p>with the gamma function being</p>
+<p>essentially the integrand of the gamma function:</p>
 <p><span class="math display">\[\Gamma(z) = \int_0^\infty
 \color{red}{t^{z-1} \, e^{-t}}\;dt\]</span></p>
 <p>Thin-tailed: When α is greater than 1, the gamma distribution has a
@@ -939,6 +939,12 @@ occur.</p>
 distribution has a thicker tail, indicating a higher probability of
 extreme values.</p>
 <p>The gamma distribution is explained <a href="https://probabilityandstats.wordpress.com/tag/gamma-distribution">here</a>.</p>
+<p>Factorials often appear in discrete probability distributions, such
+as the binomial and Poisson distributions. The gamma function’s
+connection to factorials means it can be used to derive continuous
+probability distributions, like the gamma and beta distributions. This
+ability to transition between discrete and continuous distributions
+enhances our toolkit in probability and statistics.</p>
 <p>INTUITION: The pdf is just the integrand of the gamma function, and
 in it there is a polynomial form on the random variable, which tends to
 give the pdf an initial smooth upswing. Quickly, the exponential part of
