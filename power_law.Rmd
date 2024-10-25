@@ -475,7 +475,13 @@ The Erlang distribution is subexponential. From Wikipedia:
 
 #### Gamma distribution:
 
-The gamma distribution can be thick-tailed or thin-tailed depending on its shape parameter (α).
+The gamma distribution can be thick-tailed or thin-tailed depending on its shape parameter (α) and a rate parameter ($\beta$) with pdf
+
+$$f_X (x)=\frac{\beta^\alpha}{\color{orange}\Gamma(\alpha)} \color{red}{x^{\alpha - 1}\,e^{-\beta x}} $$
+
+with the gamma function being
+
+$$\Gamma(z) = \int_0^\infty \color{red}{t^{z-1} \, e^{-t}}\;dt$$
 
 Thin-tailed: When α is greater than 1, the gamma distribution has a relatively thin tail. This means that extreme values are less likely to occur.
 
@@ -483,13 +489,31 @@ Thick-tailed: When α is less than or equal to 1, the gamma distribution has a t
 
 The gamma distribution is connected to a number of different distributions:
 
-**Chi-Squared Distribution**: A special case of the gamma distribution with $α = k/2$ and $β = 2.$ This connection is crucial in statistical hypothesis testing.
+**Chi-Squared Distribution**: A special case of the gamma distribution with $α = k/2$ and $β = 2.$ if $ X\sim \chi _{k}^{2}$ then $ X\sim {\text{Gamma}}(\alpha ={\frac {k}{2}},\theta =2)$.
+
+$$f_X(x)=\frac{1}{2^{k/2}\color{orange}\Gamma(k/2)}\color{red}{x^{k/2-1}\,e^{-x/2}}$$
+
+**Student t distribution**: It arises when a normal random variable is divided by a Chi-square or a Gamma random variable. The pdf of the t-student is
+
+$$f_X(x)= \frac{\color{orange}\Gamma\left(\frac{\nu + 1}{2}\right)}{\sqrt{\pi \nu}\,\color{orange}\Gamma\left(\frac{\nu}{2}\right)}\left( 1 + \frac{x^2}{\nu}\right)^{-\frac{\nu+1}{2}}$$
 
 **Exponential Distribution**: A special case of the gamma distribution with $α = 1$ and $β = λ.$ This distribution is used to model waiting times between events.
 
+$$f_X (x)=\frac{\beta^\alpha}{\Gamma(\alpha)}\color{red}{x^{\alpha - 1}\,e^{-\beta x}} =\beta\,e^{-\beta x}$$
+
 **Erlang Distribution:** A special case of the gamma distribution with α being a positive integer. This distribution is used to model the sum of independent exponential random variables.
 
-It is used in:
+$$f_X(x)=\frac{\lambda^k\,\color{red}{x^{k-1}\,e^{-\lambda x}}}{(k-1)!}$$
+
+**Weibull distribution:** A Weibull distribution is a generalized gamma distribution with both shape parameters equal to k.
+
+$$f_X(x)=\frac{k}{\lambda}\color{red}{\left(\frac x k\right)^{k-1}\, e^{-(x/\lambda)^k}}$$
+**Beta distribution**: If $X \sim \Gamma(α, θ)$ and $Y \sim \Gamma(β, θ)$ are independent, then $\frac{X}{X+Y}\sim \beta (α, β)$.
+
+$$f_X(x)=\frac{x^{\alpha -1}(1-x)^{\beta-1}}{\frac{\color{orange}\Gamma(\alpha)\color{orange}\Gamma(\beta)}{\color{orange}\Gamma(\alpha +\beta)}}$$
+
+
+The gamma distribution is used in:
 
 Waiting Times: The gamma distribution is often used to model waiting times between events, especially when the events are not independent or when the waiting time is not exponentially distributed.
 

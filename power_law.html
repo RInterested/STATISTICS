@@ -922,7 +922,13 @@ shape of the distribution is discretized.</p>
 <div id="gamma-distribution" class="section level4">
 <h4>Gamma distribution:</h4>
 <p>The gamma distribution can be thick-tailed or thin-tailed depending
-on its shape parameter (α).</p>
+on its shape parameter (α) and a rate parameter (<span class="math inline">\(\beta\)</span>) with pdf</p>
+<p><span class="math display">\[f_X
+(x)=\frac{\beta^\alpha}{\color{orange}\Gamma(\alpha)}
+\color{red}{x^{\alpha - 1}\,e^{-\beta x}} \]</span></p>
+<p>with the gamma function being</p>
+<p><span class="math display">\[\Gamma(z) = \int_0^\infty
+\color{red}{t^{z-1} \, e^{-t}}\;dt\]</span></p>
 <p>Thin-tailed: When α is greater than 1, the gamma distribution has a
 relatively thin tail. This means that extreme values are less likely to
 occur.</p>
@@ -933,16 +939,41 @@ extreme values.</p>
 distributions:</p>
 <p><strong>Chi-Squared Distribution</strong>: A special case of the
 gamma distribution with <span class="math inline">\(α = k/2\)</span> and
-<span class="math inline">\(β = 2.\)</span> This connection is crucial
-in statistical hypothesis testing.</p>
+<span class="math inline">\(β = 2.\)</span> if $ X_{k}^{2}$ then $
+X{}(={},)$.</p>
+<p><span class="math display">\[f_X(x)=\frac{1}{2^{k/2}\color{orange}\Gamma(k/2)}\color{red}{x^{k/2-1}\,e^{-x/2}}\]</span></p>
+<p><strong>Student t distribution</strong>: It arises when a normal
+random variable is divided by a Chi-square or a Gamma random variable.
+The pdf of the t-student is</p>
+<p><span class="math display">\[f_X(x)=
+\frac{\color{orange}\Gamma\left(\frac{\nu + 1}{2}\right)}{\sqrt{\pi
+\nu}\,\color{orange}\Gamma\left(\frac{\nu}{2}\right)}\left( 1 +
+\frac{x^2}{\nu}\right)^{-\frac{\nu+1}{2}}\]</span></p>
 <p><strong>Exponential Distribution</strong>: A special case of the
 gamma distribution with <span class="math inline">\(α = 1\)</span> and
 <span class="math inline">\(β = λ.\)</span> This distribution is used to
 model waiting times between events.</p>
+<p><span class="math display">\[f_X
+(x)=\frac{\beta^\alpha}{\Gamma(\alpha)}\color{red}{x^{\alpha -
+1}\,e^{-\beta x}} =\beta\,e^{-\beta x}\]</span></p>
 <p><strong>Erlang Distribution:</strong> A special case of the gamma
 distribution with α being a positive integer. This distribution is used
 to model the sum of independent exponential random variables.</p>
-<p>It is used in:</p>
+<p><span class="math display">\[f_X(x)=\frac{\lambda^k\,\color{red}{x^{k-1}\,e^{-\lambda
+x}}}{(k-1)!}\]</span></p>
+<p><strong>Weibull distribution:</strong> A Weibull distribution is a
+generalized gamma distribution with both shape parameters equal to
+k.</p>
+<p><span class="math display">\[f_X(x)=\frac{k}{\lambda}\color{red}{\left(\frac x
+k\right)^{k-1}\, e^{-(x/\lambda)^k}}\]</span> <strong>Beta
+distribution</strong>: If <span class="math inline">\(X \sim \Gamma(α,
+θ)\)</span> and <span class="math inline">\(Y \sim \Gamma(β, θ)\)</span>
+are independent, then <span class="math inline">\(\frac{X}{X+Y}\sim
+\beta (α, β)\)</span>.</p>
+<p><span class="math display">\[f_X(x)=\frac{x^{\alpha
+-1}(1-x)^{\beta-1}}{\frac{\color{orange}\Gamma(\alpha)\color{orange}\Gamma(\beta)}{\color{orange}\Gamma(\alpha
++\beta)}}\]</span></p>
+<p>The gamma distribution is used in:</p>
 <p>Waiting Times: The gamma distribution is often used to model waiting
 times between events, especially when the events are not independent or
 when the waiting time is not exponentially distributed.</p>
