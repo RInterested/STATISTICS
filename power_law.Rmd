@@ -16,7 +16,7 @@ output:
 
 ---
 
-#### Distribution Tails:
+### Distribution Tails:
 
 Criteria for **thick tails** (or **heavy tails**):
 
@@ -53,7 +53,7 @@ Long tails: The tails of the distribution decay slowly, leading to a higher prob
 
 ---
 
-### Power Law Distributions:
+## Power Law Distributions:
 
 ---
 
@@ -176,7 +176,7 @@ ggplot(df, aes(x = percentage, y = cum_prop)) +
 ```
 
 
-##### **Power-law distributions:**
+#### **Power-law distributions:**
 
 1. Zeta distribution
 2. Lévy distribution
@@ -329,7 +329,7 @@ There are three important subclasses of heavy-tailed distributions: the fat-tail
 
 ---
  
-##### **Heavy-tailed distributions:**
+#### **Heavy-tailed distributions:**
 
 All commonly used heavy-tailed distributions are subexponential. From [Wikipedia](https://en.wikipedia.org/wiki/Heavy-tailed_distribution#:~:text=In%20probability%20theory%2C%20heavy%2Dtailed,they%20have%20heavier%20tails%20than):
 
@@ -483,14 +483,6 @@ The Erlang distribution is subexponential. From Wikipedia:
 
 #### Gamma distribution:
 
-The gamma distribution is explained [here](https://probabilityandstats.wordpress.com/tag/gamma-distribution).
-
-INTUITION: The pdf is just the integrand of the gamma function, and in it there is a polynomial form on the random variable, which tends to give the pdf an initial smooth upswing. Quickly, the exponential part of the pdf kicks in and kills the function. So they tend to have a positive skew. As in the case of the Weibull distribution with $k=1$, the elimination of the polynomial part turns the distribution like an exponential. Here are some of the examples discussed below, showing this tendency:
-
-<img width = 900  src = "gammaish.png">
-
-[From ModelRisk David Vose, [here](https://www.linkedin.com/pulse/8-probability-distributions-every-risk-analyst-should-david-vose)]
-
 The gamma distribution can be thick-tailed or thin-tailed depending on its shape parameter (α) and a rate parameter ($\beta$) with pdf
 
 $$f_X (x)=\frac{\beta^\alpha}{\color{orange}\Gamma(\alpha)} \color{red}{x^{\alpha - 1}\,e^{-\beta x}} $$
@@ -503,38 +495,47 @@ Thin-tailed: When α is greater than 1, the gamma distribution has a relatively 
 
 Thick-tailed: When α is less than or equal to 1, the gamma distribution has a thicker tail, indicating a higher probability of extreme values.
 
+The gamma distribution is explained [here](https://probabilityandstats.wordpress.com/tag/gamma-distribution).
+
+INTUITION: The pdf is just the integrand of the gamma function, and in it there is a polynomial form on the random variable, which tends to give the pdf an initial smooth upswing. Quickly, the exponential part of the pdf kicks in and kills the function. So they tend to have a positive skew. As in the case of the Weibull distribution with $k=1$, the elimination of the polynomial part turns the distribution like an exponential. Here are some of the examples discussed below, showing this tendency:
+
+<img width = 900  src = "gammaish.png">
+
+[From ModelRisk David Vose, [here](https://www.linkedin.com/pulse/8-probability-distributions-every-risk-analyst-should-david-vose)]
+
 The gamma distribution is connected to a number of different distributions:
 
-**Chi-Squared Distribution**: A special case of the gamma distribution with $α = k/2$ and $β = 2.$ If $X \sim \chi^2$ then $X\sim \Gamma(\alpha = k/2, \theta = 2)$.
+1. **Chi-Squared Distribution**: A special case of the gamma distribution with $α = k/2$ and $β = 2.$ If $X \sim \chi^2$ then $X\sim \Gamma(\alpha = k/2, \theta = 2)$.
 
 $$f_X(x)=\frac{1}{2^{k/2}\color{orange}\Gamma(k/2)}\color{red}{x^{k/2-1}\,e^{-x/2}}$$
 
-**Student t distribution**: It arises when a normal random variable is divided by a Chi-square or a Gamma random variable. The pdf of the t-student is
+2. **Student t distribution**: It arises when a normal random variable is divided by a Chi-square or a Gamma random variable. The pdf of the t-student is
 
 $$f_X(x)= \frac{\color{orange}\Gamma\left(\frac{\nu + 1}{2}\right)}{\sqrt{\pi \nu}\,\color{orange}\Gamma\left(\frac{\nu}{2}\right)}\left( 1 + \frac{x^2}{\nu}\right)^{-\frac{\nu+1}{2}}$$
 
-**Exponential Distribution**: A special case of the gamma distribution with $α = 1$ and $β = λ.$ This distribution is used to model waiting times between events.
+3. **Exponential Distribution**: A special case of the gamma distribution with $α = 1$ and $β = λ.$ This distribution is used to model waiting times between events.
 
 $$f_X (x)=\frac{\beta^\alpha}{\Gamma(\alpha)}\color{red}{x^{\alpha - 1}\,e^{-\beta x}} =\beta\,e^{-\beta x}$$
 
-**Erlang Distribution:** A special case of the gamma distribution with α being a positive integer. This distribution is used to model the sum of independent exponential random variables.
+4. **Erlang Distribution:** A special case of the gamma distribution with α being a positive integer. This distribution is used to model the sum of independent exponential random variables.
 
 $$f_X(x)=\frac{\lambda^k\,\color{red}{x^{k-1}\,e^{-\lambda x}}}{(k-1)!}$$
 
-**Weibull distribution:** A Weibull distribution is a generalized gamma distribution with both shape parameters equal to k.
+5. **Weibull distribution:** A Weibull distribution is a generalized gamma distribution with both shape parameters equal to k.
 
 $$f_X(x)=\frac{k}{\lambda}\color{red}{\left(\frac x k\right)^{k-1}\, e^{-(x/\lambda)^k}}$$
-**Beta distribution**: If $X \sim \Gamma(α, θ)$ and $Y \sim \Gamma(β, θ)$ are independent, then $\frac{X}{X+Y}\sim \beta (α, β)$.
+
+6. **Beta distribution**: If $X \sim \Gamma(α, θ)$ and $Y \sim \Gamma(β, θ)$ are independent, then $\frac{X}{X+Y}\sim \beta (α, β)$.
 
 $$f_X(x)=\frac{x^{\alpha -1}(1-x)^{\beta-1}}{\frac{\color{orange}\Gamma(\alpha)\color{orange}\Gamma(\beta)}{\color{orange}\Gamma(\alpha +\beta)}}$$
 
-**Lévy distribution**: The gamma in it may be a bit concealed, but only at first sight, but in fact they are intimately related:
+7. **Lévy distribution**: The gamma in it may be a bit concealed, but only at first sight, but in fact they are intimately related:
 
 $$f_X(x) = \sqrt{\frac{c}{2\pi}}\frac{e^{\frac{-c}{2(x-\mu)}}}{(x-\mu)^{3/2}}=\sqrt{\frac{c}{2\pi}}\color{red}{(x-\mu)^{-3/2}\,e^{\frac{-c}{2(x-\mu)}}}$$
 
 If $X$ is a random variable following a gamma distribution with shape parameter α and rate parameter β, then the random variable $Y = 1/X$ follows a Lévy distribution with parameter α.
 
-**GEV or Generalized Extreme Value Distribution:** In probability theory and statistics, the generalized extreme value (GEV) distribution[2] is a family of continuous probability distributions developed within extreme value theory to combine the Gumbel, Fréchet and Weibull families also known as type I, II and III extreme value distributions. 
+8. **GEV or Generalized Extreme Value Distribution:** In probability theory and statistics, the generalized extreme value (GEV) distribution[2] is a family of continuous probability distributions developed within extreme value theory to combine the Gumbel, Fréchet and Weibull families also known as type I, II and III extreme value distributions. 
 
 $$f_X(x) =\frac{1}{\sigma}\color{red}{t(x)^{\xi+1}\,e^{-t(x)}}$$
 
@@ -546,7 +547,7 @@ and if $\xi = 0$
 
 $$t(x) = \exp\left(-\frac{x -\mu}{\sigma}\right)$$
 
-**Rayleigh distribution:** If $X$ is distributed as a Reyleigh distribution, the sum of squared $\sum X_i^2$ follows a gamma distribution.
+9. **Rayleigh distribution:** If $X$ is distributed as a Reyleigh distribution, the sum of squared $\sum X_i^2$ follows a gamma distribution.
 
 $$f_X(x) = \color{red}{\frac{x}{\sigma^2}\,e^{-x^2/2\sigma^2}}$$
 
