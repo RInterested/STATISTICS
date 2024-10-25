@@ -361,11 +361,18 @@ All commonly used heavy-tailed distributions are subexponential. From [Wikipedia
 
 #### Weibull distribution:
 
+$$f_X(x)=\frac{k}{\lambda}\left(\frac x k\right)^{k-1}\, e^{-(x/\lambda)^k}$$
+$\lambda$ is the scale, and $k$ is the shape parameter.
+
 Like the exponential, it models time between events. However, the Weibull is more flexible:
 
 The exponential distribution models situations where events occur continuously and independently at a **constant average rate.** It's memoryless, whereas the Weibull is not memoryless.
 
-The Weibull distribution generalizes the exponential by introducing a shape parameter. If the shape parameter is $1$, it behaves exactly like the exponential. If it's less than $1$, it models decreasing failure rates over time, as in the Lindy effect, significant "infant mortality", or defective items failing early and the failure rate decreasing over time, negative word of mouth. A shape parameter than $1$ captures increasing failure rates, such as "aging process" and positive word of mouth.
+The Weibull distribution generalizes the exponential by introducing a shape parameter. If the shape parameter is $k=1$, it behaves exactly like the exponential: 
+
+$$f_X(x)=\frac{1}{\lambda} e^{-x/\lambda}$$
+
+If it's less than $1$, it models decreasing failure rates over time, as in the Lindy effect, significant "infant mortality", or defective items failing early and the failure rate decreasing over time, negative word of mouth. A shape parameter than $1$ captures increasing failure rates, such as "aging process" and positive word of mouth.
 
 <img width = 600  src = "weibull.png">
 
@@ -467,6 +474,7 @@ Environmental Science: The Cauchy distribution can be used to model extreme weat
 
 A log-Cauchy distribution is a probability distribution of a random variable whose logarithm is distributed in accordance with a Cauchy distribution. If $X$ is a random variable with a Cauchy distribution, then $Y = \exp(X)$ has a log-Cauchy distribution.
 
+
 #### Erlang distribution:
 
 The Erlang distribution is subexponential. From Wikipedia:
@@ -475,9 +483,9 @@ The Erlang distribution is subexponential. From Wikipedia:
 
 #### Gamma distribution:
 
-The gamma distribution is explained [here](https://probabilityandstats.wordpress.com/tag/gamma-distribution/.
+The gamma distribution is explained [here](https://probabilityandstats.wordpress.com/tag/gamma-distribution).
 
-INTUITION: The pdf is just the integrand of the gamma function, and in it there is a polynomial form on the random variable, which tends to give the pdf an initial smooth upswing. Quickly, the exponential part of the pdf kicks in and kills the function. So they tend to have a positive skew. Here are some of the examples discussed below, showing this tendency:
+INTUITION: The pdf is just the integrand of the gamma function, and in it there is a polynomial form on the random variable, which tends to give the pdf an initial smooth upswing. Quickly, the exponential part of the pdf kicks in and kills the function. So they tend to have a positive skew. As in the case of the Weibull distribution with $k=1$, the elimination of the polynomial part turns the distribution like an exponential. Here are some of the examples discussed below, showing this tendency:
 
 <img width = 600  src = "gammaish.png">
 
@@ -538,7 +546,7 @@ $$t(x) = \exp\left(-\frac{x -\mu}{\sigma}\right)$$
 
 **Rayleigh distribution:** If $X$ is distributed as a Reyleigh distribution, the sum of squared $\sum X_i^2$ follows a gamma distribution.
 
-$$f_X(x) = \frac{x}{\sigma^2}\,e^{-x^2/2\sigma^2}$$
+$$f_X(x) = \color{red}{\frac{x}{\sigma^2}\,e^{-x^2/2\sigma^2}}$$
 
 
 
