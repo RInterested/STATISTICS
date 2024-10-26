@@ -109,9 +109,9 @@ $$t(x) = \exp\left(-\frac{x -\mu}{\sigma}\right)$$
 
 $$f_X(x) = \color{red}{\frac{x}{\sigma^2}\,e^{-x^2/2\sigma^2}}$$
 
-11. **F or Snedecor's Distribution**: It is the ratio distribution of two iid chi square distributions with d.f. $d_1$ and $d_2$:
+11. **F or Snedecor's Distribution**: It is the ratio distribution of two iid chi square distributions with d.f. $u$ and $v$:
 
-$$X = \frac{U_1/d_1}{U_2/d_2}$$
+$$X = \frac{U_1/u}{U_2/v}$$
 The pdf is ([reference](https://statproofbook.github.io/P/f-pdf.html)):
 
 $$f_F(f) = \frac{\color{orange}\Gamma\left( \frac{u+v}{2} \right)}{\color{orange}\Gamma\left( \frac{u}{2} \right) \cdot \color{orange}\Gamma\left( \frac{v}{2} \right)} \cdot \left( \frac{u}{v} \right)^{\frac{u}{2}} \cdot f^{\frac{u}{2}-1} \cdot \left( \frac{u}{v}f+1 \right)^{-\frac{u+v}{2}} $$
