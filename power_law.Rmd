@@ -187,7 +187,7 @@ ggplot(df, aes(x = percentage, y = cum_prop)) +
 
 ---
 
-#### Pareto distribution:
+  1. #### Pareto distribution:
 
 $$f_X(x) = \frac{\alpha \, x^\alpha_m}{x^{\alpha+1}}$$
 
@@ -212,7 +212,7 @@ ImageSize -> 600]
 
 <img width = 800  src = "pareto.png">
 
-#### Lévy distribution
+2. #### Lévy distribution
 
 Compare it to the **Lévy distribution**, and notice how as the dispersion parameter $\sigma$ decreases, the pdf adopts the shape of $1/x$
 
@@ -249,13 +249,13 @@ The Levy distribution has a heavier tail than the Pareto distribution, meaning i
 
 Applications:
 
-1. Spectroscopy: van der Waals profile 
-2. Geomagnetic Reversals: frequency of geomagnetic reversals
-3. Photon Path Length: The length of the path followed by a photon in a turbid medium 
-4. Finance: describe stock price movements and other market behaviors.
-5. Physics: Ibehavior of particles in turbulent flows.
+* Spectroscopy: van der Waals profile 
+* Geomagnetic Reversals: frequency of geomagnetic reversals
+* Photon Path Length: The length of the path followed by a photon in a turbid medium 
+* Finance: describe stock price movements and other market behaviors.
+* Physics: Ibehavior of particles in turbulent flows.
 
-#### Zipf Distribution:
+3. #### Zipf Distribution:
 
 From [here](https://iopscience.iop.org/article/10.1088/1742-6596/1113/1/012007/pdf):
 
@@ -288,7 +288,7 @@ DiscretePlot[
 
 <img width = 400  src = "zipf.png">
 
-#### Zeta distribution:
+4. #### Zeta distribution:
 
 As anticipated, the zeta distribution has support $k \in \{1,2,\dots\}$, and it is also a discrete probability distribution, in fact referred to as the discrete Pareto distribution.
 
@@ -359,7 +359,7 @@ All commonly used heavy-tailed distributions are subexponential. From [Wikipedia
 
 > In probability theory, a distribution is said to be stable if a linear combination of two independent random variables with this distribution has the same distribution, up to location and scale parameters. A random variable is said to be stable if its distribution is stable. The stable distribution family is also sometimes referred to as the Lévy alpha-stable distribution.
 
-#### Weibull distribution:
+* #### Weibull distribution:
 
 $$f_X(x)=\frac{k}{\lambda}\left(\frac x k\right)^{k-1}\, e^{-(x/\lambda)^k}$$
 $\lambda$ is the scale, and $k$ is the shape parameter.
@@ -376,7 +376,7 @@ If it's less than $1$, it models decreasing failure rates over time, as in the L
 
 <img width = 600  src = "weibull.png">
 
-#### Fréchet distribution:
+* #### Fréchet distribution:
 
 Fisher-Tippet theorem:
 
@@ -386,7 +386,7 @@ $$\frac{M_n - b_n}{a_n}\to G,$$
 
 Then $G$ belongs to one of the three extreme value distribution types:
 
-1. Fréchet: $$\Phi_\alpha(x)=\begin{cases}0,&& x\leq 0\\e^{-x^{-\alpha}},&& x>0\end{cases}$$
+  1. Fréchet: $$\Phi_\alpha(x)=\begin{cases}0,&& x\leq 0\\e^{-x^{-\alpha}},&& x>0\end{cases}$$
 
 2. Weilbull $$\Psi_\alpha(x)=\begin{cases}e^{-x^\alpha}&& x\leq 0\\1,&& x>0\end{cases}$$
 3. Gumbel $$\Lambda(x)=e^{-e^{-x}}$$
@@ -403,7 +403,7 @@ Plot[Table[
 
 However, the Gumbel it is not heavy-tailed, and it's use in EVT has to to with the "block maxima" approach, which involves dividing the data into blocks and modeling the maximum or minimum value within each block. The Gumbel distribution is often used for this purpose, even if the underlying data distribution is not heavy-tailed.
 
-#### Cauchy distribution:
+* #### Cauchy distribution:
 
 The standard Cauchy distribution is the same as the **Student's t-distribution with one degree of freedom**.
 
@@ -440,7 +440,7 @@ The witch of Agnesi is a scale and shifted version of the Cauchy pdf.
 
 The applications of the Cauchy include:
 
-1. Statistical Modeling:
+  1. Statistical Modeling:
 
 Outlier Detection: The Cauchy distribution is often used to model outliers or extreme values in data sets, as it has a longer tail than the normal distribution.
 
@@ -470,18 +470,18 @@ Environmental Science: The Cauchy distribution can be used to model extreme weat
 
 
 
-#### Log-Cauchy distribution:
+* #### Log-Cauchy distribution:
 
 A log-Cauchy distribution is a probability distribution of a random variable whose logarithm is distributed in accordance with a Cauchy distribution. If $X$ is a random variable with a Cauchy distribution, then $Y = \exp(X)$ has a log-Cauchy distribution.
 
 
-#### Erlang distribution:
+* #### Erlang distribution:
 
 The Erlang distribution is subexponential. From Wikipedia:
 
 > The Erlang distribution is the distribution of a sum of $k$ independent exponential variables with mean $1/λ$ each. Equivalently, it is the distribution of the time until the $k$-th event of a Poisson process with a rate of $λ$. The Erlang and Poisson distributions are complementary, in that while the Poisson distribution counts the events that occur in a fixed amount of time, the Erlang distribution counts the amount of time until the occurrence of a fixed number of events. When $k=1$, the distribution simplifies to the exponential distribution. The Erlang distribution is a special case of the gamma distribution in which the shape of the distribution is discretized.
 
-#### Gamma distribution:
+* #### Gamma distribution:
 
 The gamma distribution can be thick-tailed or thin-tailed depending on its shape parameter (α) and a rate parameter ($\beta$) with pdf
 

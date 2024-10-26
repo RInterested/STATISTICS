@@ -121,30 +121,40 @@ Engineering: In engineering, the gamma distribution is used to model various pro
 
 Waiting Times: The gamma distribution is often used to model waiting times between events, especially when the events are not independent or when the waiting time is not exponentially distributed.
 
-The Penelope distributions:
+---
 
-1. Exponential: Waiting times constant & memoryless
+The **"Penelope distributions"**:
 
-2. Erlang: It is a discretized form of the gamma (check the denominator, and the fact that the shape parameter $k$ has to be a positive integer)
+  1. **Exponential**: Models the **inter-arrival time** in a Poisson process. Waiting times constant & memoryless. The continuous time analogue of the geometric distribution.
+
+2. **Erlang**: It is a discretized form of the gamma (check the denominator, and the fact that the shape parameter $k$ has to be a positive integer)
 
 $$f_X(x)=\frac{\lambda^k\,\color{red}{x^{k-1}\,e^{-\lambda x}}}{(k-1)!}$$
 It is used to model the sum of independent exponential random variables: distribution of the waiting time until the $k$-th event of a Poisson process of rate $\lambda$. 
 
 If $k = 1$ it becomes the exponential distribution.
 
-3. Weibull: The waiting time changes over time. The big difference is in $e^{-(\cdot)}$: Whereas in the gamma distribution, or in the Erlang, we had $e^{-\lambda x}$ (a constant decay), in the Weibull the shape parameter comes into play in the exponential part. Here is the pdf of the Weibull:
+3. **Weibull**: The waiting time changes over time. The big difference is in $e^{-(\cdot)}$: Whereas in the gamma distribution, or in the Erlang, we had $e^{-\lambda x}$ (a constant decay), in the Weibull the shape parameter comes into play in the exponential part. Here is the pdf of the Weibull:
 
 $$f_X(x)= \frac{k}{\lambda}\left(\frac{x}{\lambda}\right)^{k-1}\,e^{-(x/\lambda)^k}$$
 
 So the exponential $e^{-\left(\frac{x}{\lambda}\right)^k}$ has a polynomial shape!
 
-Therefore the Weibull will be used to model time-to-failure:
+Therefore the Weibull will be used to model **time-to-failure**:
 
-A value of $k < 1$ indicates that the failure rate decreases over time (like in case of the Lindy effect, which however corresponds to Pareto distributions[7] rather than Weibull distributions). 
+* A value of $k < 1$ indicates that the failure rate decreases over time (like in case of the Lindy effect, which however corresponds to Pareto distributions[7] rather than Weibull distributions). 
 
-A value of $k = 1$ indicates that the failure rate is constant over time. This might suggest random external events are causing mortality, or failure. The Weibull distribution reduces to an exponential distribution.
+* A value of $k = 1$ indicates that the failure rate is constant over time. This might suggest random external events are causing mortality, or failure. The Weibull distribution reduces to an exponential distribution.
 
-A value of $k > 1$ indicates that the failure rate increases with time. This happens if there is an "aging" process, or parts that are more likely to fail as time.
+* A value of $k > 1$ indicates that the failure rate increases with time. This happens if there is an "aging" process, or parts that are more likely to fail as time.
+
+4. **Gamma**: While the exponential models the inter-arrival times in a Poisson  process, the gamma (in the discrete form) models the **$n$-th time of arrival** $T_n$:
+
+$$T_n = \sum_{i=1}^n X_i \sim \text{Gamma}(n, \lambda)$$
+
+were $X_i$ are iid exponentials.
+
+The gamma is the continuous-time analogue of the negative binomial.
 
 
 

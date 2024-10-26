@@ -529,11 +529,15 @@ distribution of material properties.</p>
 <p>Waiting Times: The gamma distribution is often used to model waiting
 times between events, especially when the events are not independent or
 when the waiting time is not exponentially distributed.</p>
-<p>The Penelope distributions:</p>
+<hr />
+<p>The <strong>“Penelope distributions”</strong>:</p>
 <ol style="list-style-type: decimal">
-<li><p>Exponential: Waiting times constant &amp; memoryless</p></li>
-<li><p>Erlang: It is a discretized form of the gamma (check the
-denominator, and the fact that the shape parameter <span class="math inline">\(k\)</span> has to be a positive integer)</p></li>
+<li><p><strong>Exponential</strong>: Models the <strong>inter-arrival
+time</strong> in a Poisson process. Waiting times constant &amp;
+memoryless. The continuous time analogue of the geometric
+distribution.</p></li>
+<li><p><strong>Erlang</strong>: It is a discretized form of the gamma
+(check the denominator, and the fact that the shape parameter <span class="math inline">\(k\)</span> has to be a positive integer)</p></li>
 </ol>
 <p><span class="math display">\[f_X(x)=\frac{\lambda^k\,\color{red}{x^{k-1}\,e^{-\lambda
 x}}}{(k-1)!}\]</span> It is used to model the sum of independent
@@ -543,9 +547,9 @@ rate <span class="math inline">\(\lambda\)</span>.</p>
 <p>If <span class="math inline">\(k = 1\)</span> it becomes the
 exponential distribution.</p>
 <ol start="3" style="list-style-type: decimal">
-<li>Weibull: The waiting time changes over time. The big difference is
-in <span class="math inline">\(e^{-(\cdot)}\)</span>: Whereas in the
-gamma distribution, or in the Erlang, we had <span class="math inline">\(e^{-\lambda x}\)</span> (a constant decay), in the
+<li><strong>Weibull</strong>: The waiting time changes over time. The
+big difference is in <span class="math inline">\(e^{-(\cdot)}\)</span>:
+Whereas in the gamma distribution, or in the Erlang, we had <span class="math inline">\(e^{-\lambda x}\)</span> (a constant decay), in the
 Weibull the shape parameter comes into play in the exponential part.
 Here is the pdf of the Weibull:</li>
 </ol>
@@ -553,18 +557,34 @@ Here is the pdf of the Weibull:</li>
 \frac{k}{\lambda}\left(\frac{x}{\lambda}\right)^{k-1}\,e^{-(x/\lambda)^k}\]</span></p>
 <p>So the exponential <span class="math inline">\(e^{-\left(\frac{x}{\lambda}\right)^k}\)</span> has
 a polynomial shape!</p>
-<p>Therefore the Weibull will be used to model time-to-failure:</p>
-<p>A value of <span class="math inline">\(k &lt; 1\)</span> indicates
-that the failure rate decreases over time (like in case of the Lindy
-effect, which however corresponds to Pareto distributions[7] rather than
-Weibull distributions).</p>
-<p>A value of <span class="math inline">\(k = 1\)</span> indicates that
-the failure rate is constant over time. This might suggest random
+<p>Therefore the Weibull will be used to model
+<strong>time-to-failure</strong>:</p>
+<ul>
+<li><p>A value of <span class="math inline">\(k &lt; 1\)</span>
+indicates that the failure rate decreases over time (like in case of the
+Lindy effect, which however corresponds to Pareto distributions[7]
+rather than Weibull distributions).</p></li>
+<li><p>A value of <span class="math inline">\(k = 1\)</span> indicates
+that the failure rate is constant over time. This might suggest random
 external events are causing mortality, or failure. The Weibull
-distribution reduces to an exponential distribution.</p>
-<p>A value of <span class="math inline">\(k &gt; 1\)</span> indicates
-that the failure rate increases with time. This happens if there is an
-“aging” process, or parts that are more likely to fail as time.</p>
+distribution reduces to an exponential distribution.</p></li>
+<li><p>A value of <span class="math inline">\(k &gt; 1\)</span>
+indicates that the failure rate increases with time. This happens if
+there is an “aging” process, or parts that are more likely to fail as
+time.</p></li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Gamma</strong>: While the exponential models the
+inter-arrival times in a Poisson process, the gamma (in the discrete
+form) models the <strong><span class="math inline">\(n\)</span>-th time
+of arrival</strong> <span class="math inline">\(T_n\)</span>:</li>
+</ol>
+<p><span class="math display">\[T_n = \sum_{i=1}^n X_i \sim
+\text{Gamma}(n, \lambda)\]</span></p>
+<p>were <span class="math inline">\(X_i\)</span> are iid
+exponentials.</p>
+<p>The gamma is the continuous-time analogue of the negative
+binomial.</p>
 <hr />
 <p><a href="http://rinterested.github.io/statistics/index.html">Home
 Page</a></p>
