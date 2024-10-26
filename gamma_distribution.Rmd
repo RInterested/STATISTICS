@@ -156,6 +156,8 @@ were $X_i$ are iid exponentials.
 
 The gamma is the continuous-time analogue of the negative binomial.
 
+5. **Beta**: Fraction of time in a queue ('the bank and post office') explained [here](https://youtu.be/2LR5JYbhyjg?si=7HbyIQ3mwXPxIpsW&t=60). The time waiting in the bank is $X \sim \text{Gamma}(a,\lambda)$ (e.g. $a =5$ people waiting in line) with $Y \sim \text{Gamma}(b, \lambda)$ waiting at the post office. Now $W = X / (X + Y)$ follows a beta distribution $\text{Beta}(a,b).$ 
+
 
 
 ---
