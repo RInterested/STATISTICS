@@ -511,12 +511,24 @@ distributions.</li>
 <p><span class="math display">\[t(x) = \exp\left(-\frac{x
 -\mu}{\sigma}\right)\]</span></p>
 <ol start="10" style="list-style-type: decimal">
-<li><strong>Rayleigh distribution:</strong> If <span class="math inline">\(X\)</span> is distributed as a Reyleigh
+<li><strong>Rayleigh distribution</strong>: If <span class="math inline">\(X\)</span> is distributed as a Reyleigh
 distribution, the sum of squared <span class="math inline">\(\sum
 X_i^2\)</span> follows a gamma distribution.</li>
 </ol>
 <p><span class="math display">\[f_X(x) =
 \color{red}{\frac{x}{\sigma^2}\,e^{-x^2/2\sigma^2}}\]</span></p>
+<ol start="11" style="list-style-type: decimal">
+<li><strong>F or Snedecor’s Distribution</strong>: It is the ratio
+distribution of two iid chi square distributions with d.f. <span class="math inline">\(d_1\)</span> and <span class="math inline">\(d_2\)</span>:</li>
+</ol>
+<p><span class="math display">\[X = \frac{U_1/d_1}{U_2/d_2}\]</span> The
+pdf is (<a href="https://statproofbook.github.io/P/f-pdf.html">reference</a>):</p>
+<p><span class="math display">\[f_F(f) =
+\frac{\color{orange}\Gamma\left( \frac{u+v}{2}
+\right)}{\color{orange}\Gamma\left( \frac{u}{2} \right) \cdot
+\color{orange}\Gamma\left( \frac{v}{2} \right)} \cdot \left( \frac{u}{v}
+\right)^{\frac{u}{2}} \cdot f^{\frac{u}{2}-1} \cdot \left(
+\frac{u}{v}f+1 \right)^{-\frac{u+v}{2}} \]</span></p>
 <p>The gamma distribution is used in:</p>
 <p>Survival Analysis: In survival analysis, the gamma distribution can
 be used to model the time to an event of interest, such as the time to
