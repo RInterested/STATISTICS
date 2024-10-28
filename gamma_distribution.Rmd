@@ -71,7 +71,7 @@ $$\begin{align}
 F_{S_n}(s)&=\Pr(S_n\leq s)\\
 &=\Pr(n\text{ or more arrivals before time }s)\\
 &=\Pr(N(s) \geq n)\\
-&= \sum_{k=n}^{\infty} \frac{(\lambda s)^k\, e^{-\lambda s}}{k!}
+&=\underset{\text{Pr(n or n+1 or n+2 ... infinite events before time s)}}{\underbrace{ \sum_{k=n}^{\infty} \frac{(\lambda s)^k\, e^{-\lambda s}}{k!}}}
 \end{align}$$
 
 The pdf of the time to the $s$ arrival will be the derivative

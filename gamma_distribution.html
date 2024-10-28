@@ -425,7 +425,9 @@ F_{X_1}(x) &amp;= \Pr(X_1 \leq x) \\
 F_{S_n}(s)&amp;=\Pr(S_n\leq s)\\
 &amp;=\Pr(n\text{ or more arrivals before time }s)\\
 &amp;=\Pr(N(s) \geq n)\\
-&amp;= \sum_{k=n}^{\infty} \frac{(\lambda s)^k\, e^{-\lambda s}}{k!}
+&amp;=\underset{\text{Pr(n or n+1 or n+2 ... infinite events before time
+s)}}{\underbrace{ \sum_{k=n}^{\infty} \frac{(\lambda s)^k\, e^{-\lambda
+s}}{k!}}}
 \end{align}\]</span></p>
 <p>The pdf of the time to the <span class="math inline">\(s\)</span>
 arrival will be the derivative</p>
