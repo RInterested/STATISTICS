@@ -379,20 +379,81 @@ MATHEMATICS</strong></h3>
 <div id="the-connections-of-the-gamma-distribution" class="section level3">
 <h3>The Connections of the Gamma Distribution:</h3>
 <hr />
-<p>The gamma distribution can be thick-tailed or thin-tailed depending
-on its shape parameter (α) and a rate parameter (<span class="math inline">\(\beta\)</span>) with pdf</p>
+<p>The gamma distribution has the pdf</p>
 <p><span class="math display">\[f_X
 (x)=\frac{\beta^\alpha}{\color{orange}\Gamma(\alpha)}
 \color{red}{x^{\alpha - 1}\,e^{-\beta x}} \]</span></p>
 <p>essentially the integrand of the gamma function:</p>
 <p><span class="math display">\[\Gamma(z) = \int_0^\infty
 \color{red}{t^{z-1} \, e^{-t}}\;dt\]</span></p>
-<p>Thin-tailed: When α is greater than 1, the gamma distribution has a
-relatively thin tail. This means that extreme values are less likely to
-occur.</p>
-<p>Thick-tailed: When α is less than or equal to 1, the gamma
-distribution has a thicker tail, indicating a higher probability of
-extreme values.</p>
+<div id="derivation-of-the-gamma-pdf" class="section level4">
+<h4>Derivation of the gamma pdf:</h4>
+<p>This is explained <a href="https://youtu.be/OdU-nKq6C-U?si=OfCERYSNT6ST3sDw">here</a>:</p>
+<p>Let’s define a Poisson counting process with the number of arrivals
+at a certain time denoted as <span class="math inline">\(N(t)\)</span>.
+As a Poisson process <span class="math inline">\(N(0)=0\)</span>, the
+number of arrivals by time <span class="math inline">\(t\)</span>
+follows a Poisson distribution,</p>
+<p><span class="math display">\[N(t)=\text{Poi}(\lambda t),\]</span></p>
+<p>which has a PMF</p>
+<p><span class="math display">\[\frac{\left(\lambda t\right)^{n}\,
+e^{-\lambda t}}{n!}\]</span></p>
+<p>where <span class="math inline">\(\lambda\)</span> is the rate
+parameter in <span class="math inline">\(\text{Pois}(\lambda t)\)</span>
+with <span class="math inline">\(n\in \mathbb N.\)</span></p>
+<p>The additional condition is that the inter-arrival times <span class="math inline">\(X_1, X_2,\dots\)</span> are iid. The time to the
+first arrival is <span class="math inline">\(X_1\)</span> while the time
+between the first and second arrival is <span class="math inline">\(X_2.\)</span> Therefore, the <strong>inter-arrival
+time</strong> between arrival <span class="math inline">\(k-1\)</span>
+and <span class="math inline">\(k\)</span> is <span class="math inline">\(X_k,\)</span> while the <strong>time to the <span class="math inline">\(n\)</span>-th arrival</strong> is</p>
+<p><span class="math display">\[S_n = \sum_{k=1}^n X_k\]</span></p>
+<p>such that <span class="math inline">\(S_1 = X_1,\)</span> and <span class="math inline">\(S_2 = X_1 + X_2\)</span> to <span class="math inline">\(S_n = X_1 + X_2 + \cdots + X_n.\)</span></p>
+<p>The distribution of <span class="math inline">\(X_1\)</span> is</p>
+<p><span class="math display">\[\begin{align}
+F_{X_1}(x) &amp;= \Pr(X \leq x) \\
+&amp;= \Pr(\text{at least 1 arrival happens before x})\\
+&amp;=1- \Pr(\text{no arrivals by time t})\\
+&amp;=1 - \Pr(N(t)=0)\\
+&amp;= 1 - \frac{\left(\lambda t\right)^0\, e^{-{\lambda t}}}{0!}\\
+&amp;= 1 - e^{-\lambda t}
+\end{align}\]</span></p>
+<p>which is the CDF of the exponential distribution. So <span class="math inline">\(X_1 \sim \text{Exp}(\lambda)\)</span>.</p>
+<p>Now the distribution of <span class="math inline">\(S_n\)</span>
+is</p>
+<p><span class="math display">\[\begin{align}
+F_{S_n}(s)&amp;=\Pr(S_n\leq s)\\
+&amp;=\Pr(n\text{ or more arrivals before time }s)\\
+&amp;=\Pr(N(s) \geq n)\\
+&amp;= \sum_{k=n}^{\infty} \frac{(\lambda s)^k\, e^{-\lambda s}}{k!}
+\end{align}\]</span></p>
+<p>The pdf of the time to the <span class="math inline">\(s\)</span>
+arrival will be the derivative</p>
+<p><span class="math display">\[\begin{align}
+f_{S_n}(s) &amp;= \frac{d}{ds}F_{S_n}(s)\\
+&amp;=\sum_{k=n}^{\infty}\frac{d}{ds} \frac{(\lambda s)^k\, e^{-\lambda
+s}}{k!}\\
+&amp;= \sum_{k=n}^{\infty} \frac{k(\lambda s)^{k-1}\lambda\, e^{-\lambda
+s}}{k!} + \frac{(\lambda s)^{k}(-\lambda)\, e^{-\lambda s}}{k!}\\
+&amp;=\sum_{k=n}^{\infty} \frac{s^{k-1}\lambda^k\, e^{-\lambda
+s}}{(k-1)!} - \frac{s^{k}\lambda^{k+1}\, e^{-\lambda s}}{k!}\\
+&amp;= e^{-\lambda s}\left(
+\sum_{k=n}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!} - \sum_{k=n}^{\infty}
+\frac{s^{k}\lambda^{k+1}}{k!}  \right)\\
+\end{align}
+\]</span></p>
+<p>Now the first term in the sum</p>
+<p><span class="math display">\[\sum_{k=n}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!}=\frac{\lambda^n
+s^{n-1}}{(n-1)!} +
+\sum_{k=n+1}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!}=\frac{\lambda^n
+s^{n-1}}{(n-1)!} +
+\sum_{k=n}^{\infty}\frac{s^{k}\lambda^{k+1}}{(k-1)!}\]</span></p>
+<p>Therefore this last summand will be cancelled by the last term,
+resulting in</p>
+<p><span class="math display">\[f_{S_n}(s)=e^{-\lambda s}
+\frac{\lambda^n s^{n-1}}{(n-1)!}
+=\frac{\lambda^n}{(n-1)!}s^{n-1}\,e^{-\lambda s}\]</span></p>
+<p>which is the PDF of the gamma.</p>
+<hr />
 <p>The gamma distribution is explained <a href="https://probabilityandstats.wordpress.com/tag/gamma-distribution">here</a>.</p>
 <p>Factorials often appear in discrete probability distributions, such
 as the binomial and Poisson distributions. The gamma function’s
@@ -612,6 +673,7 @@ distribution <span class="math inline">\(\text{Beta}(a,b).\)</span></li>
 Page</a></p>
 <p><strong>NOTE: These are tentative notes on different topics for
 personal use - expect mistakes and misunderstandings.</strong></p>
+</div>
 </div>
 
 
