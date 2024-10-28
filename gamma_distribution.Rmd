@@ -31,7 +31,9 @@ $$\Gamma(z) = \int_0^\infty \color{red}{t^{z-1} \, e^{-t}}\;dt$$
 
 This is explained [here](https://youtu.be/OdU-nKq6C-U?si=OfCERYSNT6ST3sDw):
 
-Let's define a Poisson counting process with the number of arrivals at a certain time denoted as $N(t)$. As a Poisson process $N(0)=0$, the number of arrivals by time $t$ follows a Poisson distribution,
+Let's define a Poisson counting process with the number of arrivals at a certain time denoted as $N(t)$. 
+
+As a Poisson process (i) $N(0)=0$, the number of arrivals by time $t$ (ii) follows a Poisson distribution,
 
 $$N(t)=\text{Poi}(\lambda t),$$
 
@@ -39,9 +41,11 @@ which has a PMF
 
 $$\frac{\left(\lambda t\right)^{n}\, e^{-\lambda t}}{n!}$$
 
-where $\lambda$ is the rate parameter in $\text{Pois}(\lambda t)$ with $n\in \mathbb N.$
+where $\lambda$ is the rate parameter in $\text{Pois}(\lambda t)$ with $n\in \mathbb N.$ Finally, (iii) additional condition is that the inter-arrival times $X_1, X_2,\dots$ are iid. 
 
-The additional condition is that the inter-arrival times $X_1, X_2,\dots$ are iid. The time to the first arrival is $X_1$ while the time between the first and second arrival is $X_2.$ Therefore, the **inter-arrival time** between arrival $k-1$ and $k$ is $X_k,$ while the **time to the $n$-th arrival** is
+The time to the first arrival is $X_1$ while the time between the first and second arrival is $X_2.$ Therefore, the **inter-arrival time** between arrival $k-1$ and $k$ is $X_k.$ 
+
+Separately the **time to the $n$-th arrival** is $S_n.$ So $S_1$ is the time to the first arrival.
 
 $$S_n = \sum_{k=1}^n X_k$$
 
@@ -50,17 +54,18 @@ such that $S_1 = X_1,$ and $S_2 = X_1 + X_2$ to $S_n = X_1 + X_2 + \cdots + X_n.
 The distribution of $X_1$ is
 
 $$\begin{align}
-F_{X_1}(x) &= \Pr(X \leq x) \\
-&= \Pr(\text{at least 1 arrival happens before x})\\
-&=1- \Pr(\text{no arrivals by time t})\\
-&=1 - \Pr(N(t)=0)\\
-&= 1 - \frac{\left(\lambda t\right)^0\, e^{-{\lambda t}}}{0!}\\
-&= 1 - e^{-\lambda t}
+F_{X_1}(x) &= \Pr(X_1 \leq x) \\
+&= \Pr(\text{at least 1 arrival happens before time x})\\
+&= \Pr(N(x) \geq 1)\\
+&=1- \Pr(\text{no arrivals by time x})\\
+&=1 - \Pr(N(x)=0)\\
+&= 1 - \frac{\left(\lambda x\right)^0\, e^{-{\lambda x}}}{0!}\\
+&= 1 - e^{-\lambda x}
 \end{align}$$
 
-which is the CDF of the exponential distribution. So $X_1 \sim \text{Exp}(\lambda)$.
+which is the CDF of the exponential distribution with rate $\lambda$. So $X_1 \sim \text{Exp}(\lambda)$.
 
-Now the distribution of $S_n$ is
+Now the distribution of $S_n$ (time to the $n$-th arrival) is
 
 $$\begin{align}
 F_{S_n}(s)&=\Pr(S_n\leq s)\\
@@ -86,9 +91,13 @@ $$\sum_{k=n}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!}=\frac{\lambda^n s^{n-1}}{(n
 
 Therefore this last summand will be cancelled by the last term, resulting in
 
-$$f_{S_n}(s)=e^{-\lambda s} \frac{\lambda^n s^{n-1}}{(n-1)!} =\frac{\lambda^n}{(n-1)!}s^{n-1}\,e^{-\lambda s}$$
+$$\begin{align}
+f_{S_n}(s)&=e^{-\lambda s} \frac{\lambda^n s^{n-1}}{(n-1)!}\\ &=\frac{\lambda^n}{(n-1)!}s^{n-1}\,e^{-\lambda s}
+\end{align}$$
 
-which is the PDF of the gamma.
+which is the PDF of the gamma. For comparison:
+
+$$f_X (x)=\frac{\beta^\alpha}{\color{orange}\Gamma(\alpha)} \color{red}{x^{\alpha - 1}\,e^{-\beta x}} $$
 
 ---
 

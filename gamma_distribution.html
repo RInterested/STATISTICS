@@ -390,36 +390,37 @@ MATHEMATICS</strong></h3>
 <h4>Derivation of the gamma pdf:</h4>
 <p>This is explained <a href="https://youtu.be/OdU-nKq6C-U?si=OfCERYSNT6ST3sDw">here</a>:</p>
 <p>Let’s define a Poisson counting process with the number of arrivals
-at a certain time denoted as <span class="math inline">\(N(t)\)</span>.
-As a Poisson process <span class="math inline">\(N(0)=0\)</span>, the
-number of arrivals by time <span class="math inline">\(t\)</span>
-follows a Poisson distribution,</p>
+at a certain time denoted as <span class="math inline">\(N(t)\)</span>.</p>
+<p>As a Poisson process (i) <span class="math inline">\(N(0)=0\)</span>,
+the number of arrivals by time <span class="math inline">\(t\)</span>
+(ii) follows a Poisson distribution,</p>
 <p><span class="math display">\[N(t)=\text{Poi}(\lambda t),\]</span></p>
 <p>which has a PMF</p>
 <p><span class="math display">\[\frac{\left(\lambda t\right)^{n}\,
 e^{-\lambda t}}{n!}\]</span></p>
 <p>where <span class="math inline">\(\lambda\)</span> is the rate
 parameter in <span class="math inline">\(\text{Pois}(\lambda t)\)</span>
-with <span class="math inline">\(n\in \mathbb N.\)</span></p>
-<p>The additional condition is that the inter-arrival times <span class="math inline">\(X_1, X_2,\dots\)</span> are iid. The time to the
-first arrival is <span class="math inline">\(X_1\)</span> while the time
-between the first and second arrival is <span class="math inline">\(X_2.\)</span> Therefore, the <strong>inter-arrival
-time</strong> between arrival <span class="math inline">\(k-1\)</span>
-and <span class="math inline">\(k\)</span> is <span class="math inline">\(X_k,\)</span> while the <strong>time to the <span class="math inline">\(n\)</span>-th arrival</strong> is</p>
+with <span class="math inline">\(n\in \mathbb N.\)</span> Finally, (iii)
+additional condition is that the inter-arrival times <span class="math inline">\(X_1, X_2,\dots\)</span> are iid.</p>
+<p>The time to the first arrival is <span class="math inline">\(X_1\)</span> while the time between the first and
+second arrival is <span class="math inline">\(X_2.\)</span> Therefore,
+the <strong>inter-arrival time</strong> between arrival <span class="math inline">\(k-1\)</span> and <span class="math inline">\(k\)</span> is <span class="math inline">\(X_k.\)</span></p>
+<p>Separately the <strong>time to the <span class="math inline">\(n\)</span>-th arrival</strong> is <span class="math inline">\(S_n.\)</span> So <span class="math inline">\(S_1\)</span> is the time to the first arrival.</p>
 <p><span class="math display">\[S_n = \sum_{k=1}^n X_k\]</span></p>
 <p>such that <span class="math inline">\(S_1 = X_1,\)</span> and <span class="math inline">\(S_2 = X_1 + X_2\)</span> to <span class="math inline">\(S_n = X_1 + X_2 + \cdots + X_n.\)</span></p>
 <p>The distribution of <span class="math inline">\(X_1\)</span> is</p>
 <p><span class="math display">\[\begin{align}
-F_{X_1}(x) &amp;= \Pr(X \leq x) \\
-&amp;= \Pr(\text{at least 1 arrival happens before x})\\
-&amp;=1- \Pr(\text{no arrivals by time t})\\
-&amp;=1 - \Pr(N(t)=0)\\
-&amp;= 1 - \frac{\left(\lambda t\right)^0\, e^{-{\lambda t}}}{0!}\\
-&amp;= 1 - e^{-\lambda t}
+F_{X_1}(x) &amp;= \Pr(X_1 \leq x) \\
+&amp;= \Pr(\text{at least 1 arrival happens before time x})\\
+&amp;= \Pr(N(x) \geq 1)\\
+&amp;=1- \Pr(\text{no arrivals by time x})\\
+&amp;=1 - \Pr(N(x)=0)\\
+&amp;= 1 - \frac{\left(\lambda x\right)^0\, e^{-{\lambda x}}}{0!}\\
+&amp;= 1 - e^{-\lambda x}
 \end{align}\]</span></p>
-<p>which is the CDF of the exponential distribution. So <span class="math inline">\(X_1 \sim \text{Exp}(\lambda)\)</span>.</p>
+<p>which is the CDF of the exponential distribution with rate <span class="math inline">\(\lambda\)</span>. So <span class="math inline">\(X_1 \sim \text{Exp}(\lambda)\)</span>.</p>
 <p>Now the distribution of <span class="math inline">\(S_n\)</span>
-is</p>
+(time to the <span class="math inline">\(n\)</span>-th arrival) is</p>
 <p><span class="math display">\[\begin{align}
 F_{S_n}(s)&amp;=\Pr(S_n\leq s)\\
 &amp;=\Pr(n\text{ or more arrivals before time }s)\\
@@ -449,10 +450,14 @@ s^{n-1}}{(n-1)!} +
 \sum_{k=n}^{\infty}\frac{s^{k}\lambda^{k+1}}{(k-1)!}\]</span></p>
 <p>Therefore this last summand will be cancelled by the last term,
 resulting in</p>
-<p><span class="math display">\[f_{S_n}(s)=e^{-\lambda s}
-\frac{\lambda^n s^{n-1}}{(n-1)!}
-=\frac{\lambda^n}{(n-1)!}s^{n-1}\,e^{-\lambda s}\]</span></p>
-<p>which is the PDF of the gamma.</p>
+<p><span class="math display">\[\begin{align}
+f_{S_n}(s)&amp;=e^{-\lambda s} \frac{\lambda^n s^{n-1}}{(n-1)!}\\
+&amp;=\frac{\lambda^n}{(n-1)!}s^{n-1}\,e^{-\lambda s}
+\end{align}\]</span></p>
+<p>which is the PDF of the gamma. For comparison:</p>
+<p><span class="math display">\[f_X
+(x)=\frac{\beta^\alpha}{\color{orange}\Gamma(\alpha)}
+\color{red}{x^{\alpha - 1}\,e^{-\beta x}} \]</span></p>
 <hr />
 <p>The gamma distribution is explained <a href="https://probabilityandstats.wordpress.com/tag/gamma-distribution">here</a>.</p>
 <p>Factorials often appear in discrete probability distributions, such
