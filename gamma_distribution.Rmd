@@ -81,14 +81,14 @@ f_{S_n}(s) &= \frac{d}{ds}F_{S_n}(s)\\
 &=\sum_{k=n}^{\infty}\frac{d}{ds} \frac{(\lambda s)^k\, e^{-\lambda s}}{k!}\\
 &= \sum_{k=n}^{\infty} \frac{k(\lambda s)^{k-1}\lambda\, e^{-\lambda s}}{k!} + \frac{(\lambda s)^{k}(-\lambda)\, e^{-\lambda s}}{k!}\\
 &=\sum_{k=n}^{\infty} \frac{s^{k-1}\lambda^k\, e^{-\lambda s}}{(k-1)!} - \frac{s^{k}\lambda^{k+1}\, e^{-\lambda s}}{k!}\\
-&= e^{-\lambda s}\left( \sum_{k=n}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!} - \sum_{k=n}^{\infty} \frac{s^{k}\lambda^{k+1}}{k!}  \right)\\
+&= e^{-\lambda s}\left(\color{brown}{ \sum_{k=n}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!}} -\color{magenta}{ \sum_{k=n}^{\infty} \frac{s^{k}\lambda^{k+1}}{k!}}  \right)\\
 \end{align}
 $$
 
 Now the first term in the sum
 
 $$\begin{align}
-\sum_{k=n}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!}&=\frac{\lambda^n s^{n-1}}{(n-1)!} + \sum_{k=n+1}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!}\\&=\frac{\lambda^n s^{n-1}}{(n-1)!} + \sum_{k=n}^{\infty}\frac{s^{k}\lambda^{k+1}}{(k-1)!}
+\color{brown}{\sum_{k=n}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!}}&=\frac{\lambda^n s^{n-1}}{(n-1)!} + \sum_{k=n+1}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!}\\&=\frac{\lambda^n s^{n-1}}{(n-1)!} + \color{magenta}{ \sum_{k=n}^{\infty}\frac{s^{k}\lambda^{k+1}}{k!}}
 \end{align}$$
 
 Therefore this last summand will be cancelled by the last term, resulting in

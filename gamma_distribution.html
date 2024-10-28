@@ -437,17 +437,18 @@ s}}{k!}\\
 s}}{k!} + \frac{(\lambda s)^{k}(-\lambda)\, e^{-\lambda s}}{k!}\\
 &amp;=\sum_{k=n}^{\infty} \frac{s^{k-1}\lambda^k\, e^{-\lambda
 s}}{(k-1)!} - \frac{s^{k}\lambda^{k+1}\, e^{-\lambda s}}{k!}\\
-&amp;= e^{-\lambda s}\left(
-\sum_{k=n}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!} - \sum_{k=n}^{\infty}
-\frac{s^{k}\lambda^{k+1}}{k!}  \right)\\
+&amp;= e^{-\lambda s}\left(\color{brown}{
+\sum_{k=n}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!}} -\color{magenta}{
+\sum_{k=n}^{\infty} \frac{s^{k}\lambda^{k+1}}{k!}}  \right)\\
 \end{align}
 \]</span></p>
 <p>Now the first term in the sum</p>
 <p><span class="math display">\[\begin{align}
-\sum_{k=n}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!}&amp;=\frac{\lambda^n
+\color{brown}{\sum_{k=n}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!}}&amp;=\frac{\lambda^n
 s^{n-1}}{(n-1)!} +
 \sum_{k=n+1}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!}\\&amp;=\frac{\lambda^n
-s^{n-1}}{(n-1)!} + \sum_{k=n}^{\infty}\frac{s^{k}\lambda^{k+1}}{(k-1)!}
+s^{n-1}}{(n-1)!} + \color{magenta}{
+\sum_{k=n}^{\infty}\frac{s^{k}\lambda^{k+1}}{k!}}
 \end{align}\]</span></p>
 <p>Therefore this last summand will be cancelled by the last term,
 resulting in</p>
