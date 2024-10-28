@@ -443,21 +443,26 @@ s}}{(k-1)!} - \frac{s^{k}\lambda^{k+1}\, e^{-\lambda s}}{k!}\\
 \end{align}
 \]</span></p>
 <p>Now the first term in the sum</p>
-<p><span class="math display">\[\sum_{k=n}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!}=\frac{\lambda^n
+<p><span class="math display">\[\begin{align}
+\sum_{k=n}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!}&amp;=\frac{\lambda^n
 s^{n-1}}{(n-1)!} +
-\sum_{k=n+1}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!}=\frac{\lambda^n
-s^{n-1}}{(n-1)!} +
-\sum_{k=n}^{\infty}\frac{s^{k}\lambda^{k+1}}{(k-1)!}\]</span></p>
+\sum_{k=n+1}^{\infty}\frac{s^{k-1}\lambda^k}{(k-1)!}\\&amp;=\frac{\lambda^n
+s^{n-1}}{(n-1)!} + \sum_{k=n}^{\infty}\frac{s^{k}\lambda^{k+1}}{(k-1)!}
+\end{align}\]</span></p>
 <p>Therefore this last summand will be cancelled by the last term,
 resulting in</p>
 <p><span class="math display">\[\begin{align}
 f_{S_n}(s)&amp;=e^{-\lambda s} \frac{\lambda^n s^{n-1}}{(n-1)!}\\
 &amp;=\frac{\lambda^n}{(n-1)!}s^{n-1}\,e^{-\lambda s}
 \end{align}\]</span></p>
-<p>which is the PDF of the gamma. For comparison:</p>
+<p>which is the PDF of the gamma.</p>
+<p>For comparison and from Wikipedia the shape parameter is <span class="math inline">\(\alpha=n\)</span> (the number of arrivals set to
+determine the probability that it will take different times <span class="math inline">\(s\)</span> to reach the count <span class="math inline">\(n\)</span>) and the rate parameter is <span class="math inline">\(\beta=\lambda\)</span>:</p>
 <p><span class="math display">\[f_X
-(x)=\frac{\beta^\alpha}{\color{orange}\Gamma(\alpha)}
-\color{red}{x^{\alpha - 1}\,e^{-\beta x}} \]</span></p>
+(x)=\frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha - 1}\,e^{-\beta x}
+\]</span></p>
+<p>and <span class="math inline">\(\Gamma(\alpha)=(n-1)!\)</span> with
+<span class="math inline">\(n\in \mathbb N.\)</span></p>
 <hr />
 <p>The gamma distribution is explained <a href="https://probabilityandstats.wordpress.com/tag/gamma-distribution">here</a>.</p>
 <p>Factorials often appear in discrete probability distributions, such
