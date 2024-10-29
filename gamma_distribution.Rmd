@@ -74,7 +74,9 @@ F_{S_n}(s)&=\Pr(S_n\leq s)\\
 &=\underset{\text{Pr(n or n+1 or n+2 ... infinite events before time s)}}{\underbrace{ \sum_{k=n}^{\infty} \frac{(\lambda s)^k\, e^{-\lambda s}}{k!}}}
 \end{align}$$
 
-The pdf of the time to the $s$ arrival will be the derivative
+Notice that the CDF is an infinite sum of Poisson PMF's.
+
+The pdf of the time to the $s$ arrival will be the derivative of this infinite sum of Poisson PMF's.
 
 $$\begin{align}
 f_{S_n}(s) &= \frac{d}{ds}F_{S_n}(s)\\
@@ -98,6 +100,10 @@ f_{S_n}(s)&=e^{-\lambda s} \frac{\lambda^n s^{n-1}}{(n-1)!}\\ &=\frac{\lambda^n}
 \end{align}$$
 
 which is the PDF of the gamma. 
+
+Notice that this expression can be remembered and thought of as just the structure of sort of the "derivative" of the Poisson PMF wrt to $s$ (not exactly because the exponential is untouched):
+
+$$\underset{\text{Poisson}}{\underbrace{\frac{(\lambda s)^k\;e^{-\lambda s}}{k!}}}=\frac{\lambda^k\; \color{red}{s^k}\;e^{-\lambda s}}{k!}\quad\quad\underset{\text{'d/ds'}}\to\quad \quad \lambda^k\quad \frac{\color{red}{k\, s^{k-1}}}{k!}\,e^{-\lambda s}= \lambda^k\quad \frac{\color{red}{ s^{k-1}}}{\color{magenta}{(k-1)!}}\,e^{-\lambda s}$$
 
 For comparison and from Wikipedia the shape parameter is $\alpha=n$ (the number of arrivals set to determine the probability that it will take different times $s$ to reach the count $n$) and the rate parameter is $\beta=\lambda$:
 

@@ -429,8 +429,10 @@ F_{S_n}(s)&amp;=\Pr(S_n\leq s)\\
 s)}}{\underbrace{ \sum_{k=n}^{\infty} \frac{(\lambda s)^k\, e^{-\lambda
 s}}{k!}}}
 \end{align}\]</span></p>
+<p>Notice that the CDF is an infinite sum of Poisson PMF’s.</p>
 <p>The pdf of the time to the <span class="math inline">\(s\)</span>
-arrival will be the derivative</p>
+arrival will be the derivative of this infinite sum of Poisson
+PMF’s.</p>
 <p><span class="math display">\[\begin{align}
 f_{S_n}(s) &amp;= \frac{d}{ds}F_{S_n}(s)\\
 &amp;=\sum_{k=n}^{\infty}\frac{d}{ds} \frac{(\lambda s)^k\, e^{-\lambda
@@ -459,6 +461,17 @@ f_{S_n}(s)&amp;=e^{-\lambda s} \frac{\lambda^n s^{n-1}}{(n-1)!}\\
 &amp;=\frac{\lambda^n}{(n-1)!}s^{n-1}\,e^{-\lambda s}
 \end{align}\]</span></p>
 <p>which is the PDF of the gamma.</p>
+<p>Notice that this expression can be remembered and thought of as just
+the structure of sort of the “derivative” of the Poisson PMF wrt to
+<span class="math inline">\(s\)</span> (not exactly because the
+exponential is untouched):</p>
+<p><span class="math display">\[\underset{\text{Poisson}}{\underbrace{\frac{(\lambda
+s)^k\;e^{-\lambda s}}{k!}}}=\frac{\lambda^k\;
+\color{red}{s^k}\;e^{-\lambda
+s}}{k!}\quad\quad\underset{\text{&#39;d/ds&#39;}}\to\quad \quad
+\lambda^k\quad \frac{\color{red}{k\, s^{k-1}}}{k!}\,e^{-\lambda s}=
+\lambda^k\quad \frac{\color{red}{
+s^{k-1}}}{\color{magenta}{(k-1)!}}\,e^{-\lambda s}\]</span></p>
 <p>For comparison and from Wikipedia the shape parameter is <span class="math inline">\(\alpha=n\)</span> (the number of arrivals set to
 determine the probability that it will take different times <span class="math inline">\(s\)</span> to reach the count <span class="math inline">\(n\)</span>) and the rate parameter is <span class="math inline">\(\beta=\lambda\)</span>:</p>
 <p><span class="math display">\[f_X
