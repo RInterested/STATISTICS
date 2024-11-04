@@ -63,11 +63,11 @@ Before moving on with the story, let’s pause for a bit and recall what the fac
 
 It is simply a product of the first n natural numbers.
 
-n! = n ⋅ (n - 1) ⋅ (n - 2)⋅⋅⋅ 3 ⋅ 2 ⋅ 1
+$n! = n ⋅ (n - 1) ⋅ (n - 2)⋅⋅⋅ 3 ⋅ 2 ⋅ 1$
 
 For example:
 
-5! = 5 ⋅ 4 ⋅ 3 ⋅ 2 ⋅ 1 = 120.
+$5! = 5 ⋅ 4 ⋅ 3 ⋅ 2 ⋅ 1 = 120$.
 
 One of the reasons that the factorial is important in mathematics is that it represents the number of ways we can arrange things.
 
@@ -153,7 +153,7 @@ The specific requirement is that the function log Γ is convex.
 
 A twice-differentiable function f is logarithmically convex if and only if
 
-f´´(x) f(x) ≥ f´(x)².
+$$f´´(x) f(x) ≥ f´(x)²$$
 
 The important thing is that the gamma function is in a specific mathematical sense the natural choice if you want to generalize the factorial.
 
@@ -288,10 +288,10 @@ Recall that the Euler constant is defined by
 
 $$\gamma = \lim_{n\to\infty}\left(\sum_{k=1}^n \frac 1k -\log n\right)\approx 0.5772$$
 
-If we now take the limit in the expression above for the gamma function, we get a beautiful result known as the Weierstrass product of the gamma function.
+If we now take the limit in the expression above for the gamma function, we get a beautiful result known as the **Weierstrass product** of the gamma function.
 
 
-$$\Gamma(z)=\frac{e^{-\gamma z}}{z} \prod_{n=1}^ne^{z/n}\left(1+\frac zn\right)^{-1}$$
+$$\bbox[20px, border: 2px solid red]{\Gamma(z)=\frac{e^{-\gamma z}}{z} \prod_{n=1}^ne^{z/n}\left(1+\frac zn\right)^{-1}}$$
 This is a mathematical pearl! Look at that…
 
 In some ways, this is a better representation of Γ, but we will get back to that a little later.
@@ -301,7 +301,7 @@ One of the most beautiful relations in mathematics is due to Leonhard Euler. I a
 
 Euler discovered the following amazing result, linking the gamma function to the trigonometric functions.
 
-$$\Gamma(z)\Gamma(1-z)=\frac{\pi}{\sin \pi z}$$
+$$\bbox[20px, border: 2px solid red]{\Gamma(z)\Gamma(1-z)=\frac{\pi}{\sin \pi z}}$$
 
 for all $z\notin \mathbb Z$
 
@@ -323,15 +323,17 @@ $$\frac 1{-z\Gamma(z)\Gamma(-z)}=z\prod_{n=1}^\infty\left(1 - \frac{z^2}{n^2}\ri
 
 Now we can use the functional equation for the gamma function
 
-Γ(1 - z) = - z Γ(-z)
+$$Γ(1 - z) = - z Γ(-z)$$
 
 to derive
 
 $$\Gamma(z)\Gamma(1-z)=-z\Gamma(z)\Gamma(-z)=\frac{\pi}{\sin(\pi z)}$$
 
-It is clear that z cannot be an integer, because the denominator above would then be 0.
+It is clear that $z$ cannot be an integer, because the denominator above would then be $0$.
 
-Applications of the Gamma Function
+Applications of the Gamma Function:
+
+
 The gamma function pops up all over the place throughout mathematics.
 
 From statistics, number theory, and complex analysis in mathematics, to string theory in physics. It seems to be a mathematical glue that ties different fields together and there’s a good reason why as we will see a little later.
@@ -345,6 +347,7 @@ $$\begin{align}
 &=\int_0^\infty (nx)^{s-1}e^{-nx}n \,dx\\
 \frac{1}{n^s}\Gamma(s) &= \int_0^\infty x^{s-1}e^{-nx}dx
 \end{align}$$
+
 and since this holds for all natural numbers n, we can sum on both sides to get
 
 $$\begin{align}
@@ -355,23 +358,23 @@ $$\begin{align}
 
 Thus we have arrived at a beautiful relation between the zeta function and the gamma function:
 
-$$\zeta(s)\Gamma(s) =\int^\infty_0\frac{x^{s-1}}{e^x-1}dx$$
+$$\bbox[20px, border: 2px solid red]{\zeta(s)\;\Gamma(s) =\int^\infty_0\frac{x^{s-1}}{e^x-1}dx}$$
 
-This however, is only valid for Re(s) > 1.
+This however, is only valid for $\text{Re}(s) > 1$.
 
 This is the first hint that the two functions share an intimate relationship.
 
 A deeper and more interesting result, which I consider to be one of the most beautiful functional equations in the world, is the following, which I will state without proof:
 
-$$\pi^{-s/2}\Gamma(s/2)\zeta(s)=\pi^{-\frac{1-s}{2}}\left(\frac{1-s}2\right)\zeta(1-s)$$
+$$\bbox[20px, border: 2px solid red]{\pi^{-s/2}\;\Gamma(s/2)\;\zeta(s)=\pi^{-\frac{1-s}{2}}\left(\frac{1-s}2\right)\zeta(1-s)}$$
 
 Bernhard Riemann found this bad boy in 1859 and it gives a lot of knowledge of the zeta function via the gamma function.
 
-For instance, one can clearly see the trivial zeros of ζ at the negative even integers. This is because, by analytically continuing Γ(s) to the whole complex plane, we see that it has poles at the non-positive integers. And since the gamma factor on the left-hand side blows up at the negative even integers but the right-hand side is finite, then ζ(s) has to be zero at those points.
+For instance, one can clearly see the trivial zeros of ζ at the negative even integers. This is because, by analytically continuing Γ(s) to the whole complex plane, we see that it has poles at the non-positive integers. And since the gamma factor on the left-hand side blows up at the negative even integers but the right-hand side is finite, then $ζ(s)$ has to be zero at those points.
 
 In theoretical physics, the beta function that Euler (also) discovered, was used by Italian theoretical physicist Gabriele Veneziano in 1968 to describe strongly interacting mesons.
 
-The Euler beta function can be defined by Β(x, y) = Γ(x)Γ(y) / Γ(x + y).
+The Euler beta function can be defined by $Β(x, y) = Γ(x)Γ(y) / Γ(x + y)$.
 
 The reason for this is that it turns out to describe the first known scattering amplitude in string theory, and is in a sense a unique solution to this problem. It also has to do with the poles at the negative integers of Γ.
 
@@ -379,10 +382,10 @@ Another strikingly beautiful result concerns the growth of the gamma function. T
 
 $$\Gamma(z+1) \sim \sqrt{2\pi z}\left(\frac z e\right)^z$$
 
-This says that the order of growth of the two sides above is the same i.e. the limit of their ratio tends to 1 as z tends to infinity.
+This says that the order of growth of the two sides above is the same i.e. the limit of their ratio tends to $1$ as $z$ tends to infinity.
 
 Euler’s Amazing Integral Formula
-In the derivation of the integral formula for Γ(s) ζ(s) we summed on both sides and created some series.
+In the derivation of the integral formula for $Γ(s) ζ(s)$ we summed on both sides and created some series.
 
 Instead of doing that, Euler did something brilliant. He made a more general substitution and then his mind exploded with creativity, ending up with an amazing formula that holds all kinds of interesting stuff.
 
@@ -396,13 +399,13 @@ $$\begin{align}
 
 At Euler’s time, not much was known about complex analysis, but he had a fantastic intuition and since he knew that this relation holds when w is a positive real number, he considered what happens when w is a complex number with Re(w) > 0.
 
-Let w ∈ ℂ with Re(w) > 0. Then by complex conjugating w on both sides of the equation above, we get
+Let $w ∈ ℂ$ with $Re(w) > 0$. Then by complex conjugating w on both sides of the equation above, we get
 
 $$\frac{\Gamma(z)}{\bar w^z}=\int_0^\infty x^{z-1}e^{-\bar w x}dx$$
 
 Now comes a brilliant thought!
 
-Euler says let w = a + bi, let the argument of w be θ and let |w| = r such that w = r ⋅ exp(θi). Then we can write the above in an interesting way.
+Euler says let $w = a + bi$, let the argument of $w$ be $θ$ and let $|w| = r$ such that $w = r ⋅ \exp(θi)$. Then we can write the above in an interesting way.
 
 $$\frac{\Gamma(z)}{r^z}e^{\theta i z}=\int_0^\infty x^{z-1}e^{-\bar w x}dx$$
 
@@ -459,7 +462,7 @@ except zero.
 
 The specific case w=i will solve the Dirichlet integral since then a=0 and b=1.
 
-So the Dirichlet integral I = π/2.
+So the Dirichlet integral $I = π/2$.
 
 Analytic Continuation of the Gamma Function
 There is one quite important thing that we haven’t discussed yet.
@@ -488,29 +491,29 @@ This also shows that the gamma function doesn’t have any zeros and it has pole
 
 There is another way of analytically continue the gamma function. Recall that
 
-Γ(z+1) = z Γ(z)
+$Γ(z+1) = z Γ(z)$
 
-Rearanging this, reveals
+Rearranging this, reveals
 
-Γ(z) = Γ(z+1)/z
+$Γ(z) = Γ(z+1)/z$
 
 In the same way we get
 
 $$\Gamma(z) =\frac{\Gamma(z+1)}{z}=\frac{\Gamma(z+2)}{z(z+1)}=\frac{\Gamma(z+3)}{z(z+1)(z+2)}$$
 Showing that we can make an analytic continuation displaying meromorphic representations of Γ where we also see the poles at the non-positive integers.
 
-What is 1/2!?
-Since Γ(n+1) = n! for all non-negative whole numbers n, we can give meaning to 1/2! by calculating Γ(1/2 + 1) = Γ(3/2).
+What is $1/2!$?
+Since $Γ(n+1) = n!$ for all non-negative whole numbers n, we can give meaning to $1/2!$ by calculating $Γ(1/2 + 1) = Γ(3/2)$.
 
 But how do we do that?
 
-Well, first note that by the functional equation Γ(z+1) = z Γ(z), we can simplify the problem a bit.
+Well, first note that by the functional equation $Γ(z+1) = z Γ(z)$, we can simplify the problem a bit.
 
-Γ(3/2) = 1/2 Γ(1/2).
+$Γ(3/2) = 1/2 Γ(1/2).$
 
-Thus, it suffices to find Γ(1/2).
+Thus, it suffices to find $Γ(1/2)$.
 
-To do that, we use Euler’s reflection formula once again on the special case z = 1/2:
+To do that, we use Euler’s reflection formula once again on the special case $z = 1/2$:
 
 $$\begin{align}
 \Gamma(z)\Gamma(1-z)&=\frac{\pi}{\sin(\pi z)}\implies\\
@@ -522,6 +525,7 @@ Therefore we can now interpret
 
 $$\frac 1 2! =\frac 1 2 \Gamma(1/2)=\sqrt \pi/2$$
 
+---
 
 References:
 
