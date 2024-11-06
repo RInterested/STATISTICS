@@ -48,7 +48,7 @@ output:
 <p><a href="http://rinterested.github.io/statistics/multivariate_gaussian.html">Multivariate Gaussian Distribution</a></p>
 <p><a href="http://rinterested.github.io/statistics/multivariate_normal_draws.html">Multivariate Gaussian Distribution: Random Sampling and the Cholesky</a></p>
 <p><a href="http://rinterested.github.io/statistics/dirichlet.html">Dirichlet distribution</a></p>
-<p><a href="http://rinterested.github.io/statistics/gamma_function.html">Gamma Function (Medium article with LaTeX transcription)</a></p>
+<p><a href="http://rinterested.github.io/statistics/gamma_function.html">Gamma Function</a></p>
 <p><a href="http://rinterested.github.io/statistics/gamma_distribution.html">Gamma Distribution</a></p>
 <p><a href="http://rinterested.github.io/statistics/power_law.html">Power-law, Heavy & Fat-Tailed Distributions</a></p>
 <p><a href="http://rinterested.github.io/statistics/copulas.html">Copulas</a></p>
@@ -242,6 +242,7 @@ output:
 <p><a href="http://rinterested.github.io/statistics/statistical_manifolds.html">Manifold Learning</a></p>
 <p><a href="http://rinterested.github.io/statistics/pushforward.html">The Pushforward and the Pullback</a></p>
 <p><a href="http://rinterested.github.io/statistics/lie_group_lie_algebra.html">Calculating the Lie Algebra of SL(2,C)</a></p>
+</div>
 <br><br>
 
 
