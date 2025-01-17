@@ -382,14 +382,135 @@ MATHEMATICS</strong></h3>
 <p>This page is not meant to be a formal presentation on p-adics, but
 rather some basic calculations and snippets of code to clarify some
 points.</p>
-<p>The typical presentation of p-adics focuses on the integers as power
-sums expanding to infinity on to the left as in <span class="math inline">\(\mathbb Z_3,\)</span> corresponding to the
+<p>Simple algorithm compared to long division based on a couple of
+examples:</p>
+<p>Based on <a href="https://youtu.be/cP0-69P2lJw?si=MzQmGH3S_VS1pEa-">this YT
+presentation</a>, let’s look first at the decimal expansion of <span class="math inline">\(1/3\)</span>:</p>
+<p><span class="math display">\[\frac 1 3 = \frac {c_1}{10} + \frac
+{c_2}{10^2} + \frac {c_3}{10^3}+ \dots  \]</span></p>
+<p>Multiplying <span class="math inline">\(\times 3\)</span></p>
+<p><span class="math display">\[1= 3\left( \frac {c_1}{10} + \frac
+{c_2}{10^2} + \frac {c_3}{10^3}+ \dots \right)  \]</span></p>
+<p>gets us to the point when we have to add a zero <span class="math inline">\(0\)</span> to the right of <span class="math inline">\(1\)</span> to find <span class="math inline">\(c_1\)</span> (i.e. multiply <span class="math inline">\(\times 10\)</span>. Naturally, <span class="math inline">\(c_0=0.\)</span></p>
+<p><span class="math display">\[10 = 3\left( c_1 + \frac {c_2}{10^1} +
+\frac {c_3}{10^2}+ \dots \right) \]</span></p>
+<p>Now <span class="math inline">\(3 c_1=10 \implies c_1 = 3\)</span>
+and</p>
+<p><span class="math display">\[1=10 - 9 = 3\left( \frac {c_2}{10^1} +
+\frac {c_3}{10^2}+ \dots \right) \]</span></p>
+<p>Again we have to multiply by ten:</p>
+<p><span class="math display">\[10 = 3\left(c_2 + \frac{c_3}{10^1}+
+\dots \right)\]</span></p>
+<p>and we see that <span class="math inline">\(C_2=3.\)</span>
+Etcetera.</p>
+<p>This is mirrored in the p-adics. For instance, <span class="math inline">\(1/3\)</span> in <span class="math inline">\(\mod
+\mathbb Q_5:\)</span></p>
+<p><span class="math display">\[1 = 3\left(a_0 + a_1\, p + a_2 \, p^2+
+\dots \right) \]</span></p>
+<p>will result in <span class="math display">\[a_0= 2\]</span></p>
+<p>because <span class="math inline">\(3\times 2 = 6 \equiv 1
+\mod(5).\)</span></p>
+<p><span class="math display">\[1 = 3\left(2 + a_1\, p + a_2 \, p^2+
+\dots \right) \]</span></p>
+<p>Subtracting from both sides:</p>
+<p><span class="math display">\[1 - 6= -5 = 3\left(a_1\, p + a_2 \, p^2+
+\dots \right)\]</span></p>
+<p>Since we are operating <span class="math inline">\(\mod(5)\)</span>
+the result on the LHS will be a multiple of <span class="math inline">\(5\)</span>. Now dividing by <span class="math inline">\(5\)</span> on both sides:</p>
+<p><span class="math display">\[4 \mod(5) \equiv -1 = 3\left(a_1 + a_2
+\, p^1+ \dots \right)\]</span></p>
+<p>will yield <span class="math display">\[a_1 = 3\]</span></p>
+<p>since <span class="math inline">\(3 \times 3 = 9\equiv 4
+\mod(5).\)</span></p>
+<p>Rinse and repeat:</p>
+<p><span class="math display">\[-1 - 9= -10 = 3\left(a_2\, p + a_3 \,
+p^2+ \dots \right)\]</span></p>
+<p>Divide by <span class="math inline">\(5\)</span>:</p>
+<p><span class="math display">\[3 \mod(5) \equiv -2 = 3\left(a_2 + a_3
+\, p+ \dots \right)\]</span></p>
+<p>yielding</p>
+<p><span class="math display">\[a_2=1\]</span></p>
+<p>Rinse and repeat:</p>
+<p><span class="math display">\[-2-3=-5 = 3\left( a_3\,p+ a_4\,p^2\dots
+\right)\]</span></p>
+<p>Divide by <span class="math inline">\(5\)</span>:</p>
+<p><span class="math display">\[4 \mod(5)\equiv -1 = 3\left( a_3+
+a_4\,p\dots \right)\]</span></p>
+<p>so <span class="math display">\[a_3=3\]</span></p>
+<p>Et cetera.</p>
+<p>In SageMath:</p>
+<pre><code>padic_printing.mode(&#39;digits&#39;)
+print(Qp(5)(1/3))
+...31313131313131313132
+padic_printing.mode(&#39;series&#39;)
+print(Qp(5)(1/3))
+2 + 3*5 + 5^2 + 3*5^3 + 5^4 + 3*5^5 + 5^6 + 3*5^7 + 5^8 + 3*5^9 + 5^10 + 3*5^11 + 5^12 + 3*5^13 + 5^14 + 3*5^15 + 5^16 + 3*5^17 + 5^18 + 3*5^19 + O(5^20)</code></pre>
+<p>Another example: <span class="math inline">\(2/3\)</span> in <span class="math inline">\(5\)</span>-adic:</p>
+<p>In Sagemath:</p>
+<pre><code>padic_printing.mode(&#39;digits&#39;)
+print(Qp(5)(2/3))
+...13131313131313131314
+padic_printing.mode(&#39;series&#39;)
+print(Qp(5)(2/3))
+4 + 5 + 3*5^2 + 5^3 + 3*5^4 + 5^5 + 3*5^6 + 5^7 + 3*5^8 + 5^9 + 3*5^10 + 5^11 + 3*5^12 + 5^13 + 3*5^14 + 5^15 + 3*5^16 + 5^17 + 3*5^18 + 5^19 + O(5^20)</code></pre>
+<p><span class="math display">\[2 = 3\left(a_0 + a_1\, p + a_2 \, p^2+
+\dots \right) \]</span></p>
+<p><span class="math display">\[a_0=4\]</span></p>
+<p>because <span class="math inline">\(3 \times 4 = 12\equiv2
+\mod(5)\)</span></p>
+<p>Now</p>
+<p><span class="math display">\[2-3 \times 4= -10 = 3\left(a_1\, p + a_2
+\, p^2+ \dots \right) \]</span></p>
+<p>Divide by <span class="math inline">\(5\)</span></p>
+<p><span class="math display">\[3 \mod(5)\equiv -2 = 3\left(a_1 + a_2 \,
+p+ \dots \right) \]</span></p>
+<p>yields</p>
+<p><span class="math display">\[a_1 = 1\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[-2 -3=-5= 3\left(a_1 + a_2 \, p+ \dots
+\right) \]</span></p>
+<p>divide by <span class="math inline">\(5\)</span></p>
+<p><span class="math display">\[4 \mod(5)\equiv -1 = 3\left( a_2 + a_3\,
+p+ \dots \right) \]</span></p>
+<p>and</p>
+<p><span class="math display">\[a_2=3\]</span></p>
+<p>Subtract</p>
+<p><span class="math display">\[-1 - 9=-10= 3\left(a_3\, p+ \dots
+\right) \]</span></p>
+<p>Divide by <span class="math inline">\(5\)</span></p>
+<p><span class="math display">\[3\mod(5)\equiv-2= 3\left(a_3\, p+ \dots
+\right) \]</span></p>
+<p>yielding</p>
+<p><span class="math inline">\(a_3=1\)</span></p>
+<p>And so on.</p>
+<p>Notice that this would break if we tried <span class="math inline">\(1/24\)</span> in <span class="math inline">\(2\)</span>-adics:</p>
+<p><span class="math display">\[1=24 (a_0+ a_1 \,p + a_2
+\,p^2+\dots)\]</span></p>
+<p>because there is no number <span class="math inline">\(n\)</span>
+such that <span class="math inline">\(24 \, n\equiv 1\mod(2).\)</span>
+Hence we we’ll need the factorization trick explained below with <span class="math inline">\(1/24= 1/3\times 2^{-3}.\)</span></p>
+<hr />
+<p>P-adics expand to infinity on to the left as in <span class="math inline">\(\mathbb Z_3,\)</span> corresponding to the
 3-adics. For example, in this system the number <span class="math inline">\(3\)</span> is</p>
-<p><span class="math display">\[...00000000000000000011 =  2 \cdot 2^1 +
-1 \cdot 2^0 \]</span></p>
+<p><span class="math display">\[...00000000000000000010 =  0 \cdot 3^0 +
+1 \cdot 3^1 \]</span>.</p>
+<p>The pattern for a <span class="math inline">\(p\)</span>-adic number
+is <span class="math inline">\(a_0 + a_1\,p + a_2\,p^2+\cdots\)</span>
+with <span class="math inline">\(a_i\in\{0,\dots, p-1\}.\)</span></p>
+<p>In Sage</p>
+<pre><code>padic_printing.mode(&#39;digits&#39;)
+print(Zp(3)(3))
+...000000000000000000010
+padic_printing.mode(&#39;series&#39;)
+print(Zp(3)(3))
+padic_printing.mode(&#39;series&#39;)
+print(Zp(3)(3))</code></pre>
+<p>Notice that this is different from <span class="math inline">\(3 \mod
+2\)</span>, in which the series is <span class="math inline">\(3 = 1
+\times 2^0 + 1 \times 2^1\)</span>.</p>
 <p>The negative reals are simply the additive inverses of their positive
-counterparts, so</p>
-<p><span class="math display">\[-1 = ...11111111\]</span></p>
+counterparts, so <span class="math inline">\(-1 =
+...11111111\)</span></p>
 <p>Because</p>
 <p><span class="math display">\[...11111111 + ...00000001 =
 ...000000\]</span></p>
@@ -398,8 +519,9 @@ right to left, <span class="math inline">\(1 + 1 = 0\)</span> and we
 carry <span class="math inline">\(1\)</span> to the left to add it to
 the <span class="math inline">\(1\)</span> in the second position in the
 expression of <span class="math inline">\(-1.\)</span></p>
-<p>Now, how are the finite digits to the right of the period on the
-right calculated, and where do they come from?</p>
+<p>Now, how are the finite digits (<span class="math inline">\(.011\)</span>) to the right of the period
+calculated in an expression such as <span class="math inline">\(...10101010101010101.011\)</span>, and where do
+they come from?</p>
 <p>The issue comes up in the introduction of <span class="math inline">\(\mathbb Q_p\)</span> numbers. For instance, in the
 case of the 2-adic expression of <span class="math inline">\(\frac
 1{24}\)</span>. P-adic numbers can be factored as</p>
@@ -441,7 +563,7 @@ print(third * three)
 right, like <span class="math inline">\(10^{-3}\)</span> would in base
 <span class="math inline">\(10.\)</span> In this way, we get the final
 result:</p>
-<p><span class="math display">\[1/24...10101010101010101.011\]</span></p>
+<p><span class="math display">\[1/24=...10101010101010101.011\]</span></p>
 <p>or in sagemath</p>
 <pre><code>padic_printing.mode(&#39;digits&#39;)
 print(Qp(2)(1/24))
