@@ -158,7 +158,7 @@ $$3\mod(5)\equiv-2= 3\left(a_3\, p+ \dots \right) $$
 
 yielding
 
-$a_3=1$
+$$a_3=1$$
 
 And so on.
 
