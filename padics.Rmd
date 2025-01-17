@@ -93,6 +93,8 @@ so $$a_3=3$$
 
 Et cetera.
 
+<img width = 600  src = "padics.png">
+
 
 In SageMath:
 
