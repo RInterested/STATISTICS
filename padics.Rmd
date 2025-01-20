@@ -19,7 +19,7 @@ output:
 
 ---
 
-### Fractions:
+#### Fractions:
 
 Simple algorithm compared to long division based on a couple of examples:
 
@@ -100,6 +100,20 @@ Et cetera.
 
 <img width = 600  src = "padics.png">
 
+$$
+\require{enclose}
+\begin{array}{rll}
+    125 && \hbox{(Explanations)} \\[-3pt]
+   4 \enclose{longdiv}{500}\kern-.2ex \\[-3pt]
+      \underline{4\phantom{00}} && \hbox{($4 \times 1 = 4$)} \\[-3pt]
+      10\phantom{0} && \hbox{($5 - 4 = 1$)} \\[-3pt]
+      \underline{\phantom{0}8\phantom{0}} && \hbox{($4 \times 2 = 8$)} \\[-3pt]
+      \phantom{0}20 && \hbox{($10 - 8 = 2$)} \\[-3pt]
+      \underline{\phantom{0}20} && \hbox{($4 \times 5 = 20$)} \\[-3pt]
+      \phantom{00}0
+  \end{array}
+$$
+
 
 In SageMath:
 
@@ -113,6 +127,9 @@ print(Qp(5)(1/3))
 ```
 
 $$...31313131313131313132 = 2 + 3\cdot 5 + 5^2 + 3\cdot 5^3 + 5^4 + 3\cdot 5^5 + 5^6 + 3\cdot 5^7 + 5^8 + 3\cdot 5^9 + 5^{10} + 3\cdot 5^{11} + O(5^{12})$$
+
+---
+
 
 Another example: $2/3$ in $5$-adic:
 
@@ -176,6 +193,12 @@ Notice that this would break if we tried $1/24$ in $2$-adics:
 $$1=24\, (a_0+ a_1 \,p + a_2 \,p^2+\dots)$$
 
 because there is no number $n$ such that $24 \, n\equiv 1\mod(2).$ Hence we we'll need the factorization trick explained below with $1/24= 1/3\times 2^{-3}.$
+
+---
+
+[Wikipedia example](https://en.wikipedia.org/wiki/P-adic_number) of $1/5$ in $3$-adics:
+
+<img width = 600  src = "padics_wikipedia.png">
 
 ___
 
