@@ -98,19 +98,20 @@ so $$a_3=3$$
 
 Et cetera.
 
-<img width = 600  src = "padics.png">
 
 $$
 \require{enclose}
 \begin{array}{rll}
-    125 && \hbox{(Explanations)} \\[-3pt]
-   4 \enclose{longdiv}{500}\kern-.2ex \\[-3pt]
-      \underline{4\phantom{00}} && \hbox{($4 \times 1 = 4$)} \\[-3pt]
-      10\phantom{0} && \hbox{($5 - 4 = 1$)} \\[-3pt]
-      \underline{\phantom{0}8\phantom{0}} && \hbox{($4 \times 2 = 8$)} \\[-3pt]
-      \phantom{0}20 && \hbox{($10 - 8 = 2$)} \\[-3pt]
-      \underline{\phantom{0}20} && \hbox{($4 \times 5 = 20$)} \\[-3pt]
-      \phantom{00}0
+     & \color{blue}{2}\,\color{red}{3}\,\color{magenta}{1}\,\color{green}{3}\dots  \\[-3pt]
+   3 &\enclose{longdiv}{\phantom{0}1}\kern-.2ex \\[-3pt]
+      & \underline{-6} && \hbox{($\color{blue}{2} \times 3 = 6\equiv 1\mod(5)$)} \\[-3pt]
+      &-5\phantom{0}\to -1 && \hbox{($-5/p = -1\equiv 4\mod(5)$)}\,\hbox{($-5/p=3(x_1 + x_2p^1+ x_3p^2+\cdots)$)} \\[-3pt]
+      &\phantom{0000000}\underline{-9\phantom{0}} && \hbox{($\color{red}{3} \times 3 =9 \equiv 4 \mod(5)$)} \\[-3pt]
+      &\phantom{00000}-10 &\to -2 & \hbox{($-10/p = -2\equiv 3\mod(5)$)}\,\hbox{($-10/p=3(x_2+ x_3p+\cdots)$)} \\[-3pt]
+      &&\phantom{000}\underline{-3} & \hbox{($\color{magenta}{1} \times 3 = 3\equiv 3\mod(5)$)} \\[-3pt]
+       &&\phantom{00}-5 \to -1 & \hbox{($-5/p = -1\equiv 4\mod(5)$)}\,\hbox{($-5/p=3(x_3+\cdots)$)} \\[-3pt]
+       &&\phantom{00000000}-9 & \hbox{($\color{green}{3} \times 3 = 9\equiv 4\mod(5)$)}\\[-3pt]
+       &&&\vdots
   \end{array}
 $$
 
