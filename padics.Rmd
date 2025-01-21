@@ -201,6 +201,40 @@ because there is no number $n$ such that $24 \, n\equiv 1\mod(2).$ Hence we we'l
 
 <img width = 600  src = "padics_wikipedia.png">
 
+$$
+\require{enclose}
+\begin{array}{rll}
+     & \color{blue}{2}\,\color{red}{0}\,\color{magenta}{1}\,\color{green}{2}\dots  \\[-3pt]
+   5 &\enclose{longdiv}{\phantom{0}1}\kern-.2ex \\[-3pt]
+      & \underline{-10} && \hbox{($\color{blue}{2} \times 5 = 10\equiv 1\mod(3)$)} \\[-3pt]
+      &-9\phantom{0}\to -3 && \hbox{($-9/p = -3\equiv 0\mod(3)$)}\,\hbox{($-9/p=5(x_1 + x_2p^1+ x_3p^2+\cdots)$)} \\[-3pt]
+      &\phantom{0000000}\underline{-0\phantom{0}} && \hbox{($\color{red}{0} \times 5 =0 \equiv 0 \mod(3)$)} \\[-3pt]
+      &\phantom{000000}-3 &\to -1 & \hbox{($-3/p = -1\equiv 2\mod(3)$)}\,\hbox{($-3/p=5(x_2+ x_3p+\cdots)$)} \\[-3pt]
+      &&\phantom{000}\underline{-5} & \hbox{($\color{magenta}{1} \times 5 = 5\equiv 2\mod(3)$)} \\[-3pt]
+       &&\phantom{00}-6 \to -2 & \hbox{($-6/p = -2\equiv 1\mod(3)$)}\,\hbox{($-6/p=5(x_3+\cdots)$)} \\[-3pt]
+       &&\phantom{00000000}-10 & \hbox{($\color{green}{2} \times 5 = 10\equiv 1\mod(3)$)}\\[-3pt]
+       &&&\vdots
+  \end{array}
+$$
+
+
+In SageMath the $3$-adic expansion is:
+
+
+```
+padic_printing.mode('series')
+print(Qp(3)(1/5))
+2 + 3^2 + 2*3^3 + 3^4 + 3^6 + 2*3^7 + 3^8 + 3^10 + 2*3^11 + 3^12 + 3^14 + 2*3^15 + 3^16 + 3^18 + 2*3^19 + O(3^20)
+padic_printing.mode('digits')
+print(Qp(3)(1/5))
+...21012101210121012102
+```
+
+whereas base $3$ base expression is
+
+$$0.012101210121\dots_3$$
+
+
 ___
 
 
