@@ -298,6 +298,8 @@ Negative exponents typically come into play when dealing with fractions or repre
 
 In the p-adic number system, fractions that involve negative exponents emerge when the denominator of the fraction is divisible by $p$, the base of the system. This is because the p-adic expansion needs to represent the fractional part appropriately by incorporating terms with negative exponents. Let's consider an example in the $5$-adic system: Let's take $1/25$. Convert to $5$-adic Expansion: $1/25=5^{−2}$.
 
+#### Digits to the right of the period in $p$-adic expressions (e.g. $.011$):
+
 How are the finite digits ($.011$) to the right of the period calculated in an expression such as $...10101010101010101.011$, and where do they come from?
 
 The issue comes up in the introduction of $\mathbb Q_p$ numbers. For instance, in the case of the 2-adic expression of $\frac 1{24}$. P-adic numbers can be factored as
