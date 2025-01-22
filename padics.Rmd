@@ -42,7 +42,12 @@ whereas
 
 $$\left|  3-2\right|_{7}= \left|  1\right|_{7}= \left| 7^0  \right|_{7} = 7^{0}=1$$
 
-This determines other seemingly puzzling results, such as the fact that in the $2$-adic sense
+Or in 3-adic distance:
+
+$1$ and $3$: Their difference $(2)$ is not divisible by $3$, so their $3$-adic distance is relatively large.
+$1$ and $10$: Their difference $(9)$ is divisible by $3^2$, making them closer in the $3$-adic sense.
+
+This metric determines other seemingly puzzling results, such as the fact that in the $2$-adic sense
 
 
 $$1 + 2 + 2^2 + 2^3 + 2^4 + \cdots=\frac{1}{1-2}=-1$$
