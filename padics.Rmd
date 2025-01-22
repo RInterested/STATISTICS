@@ -42,6 +42,13 @@ whereas
 
 $$\left|  3-2\right|_{7}= \left|  1\right|_{7}= \left| 7^0  \right|_{7} = 7^{0}=1$$
 
+This determines other seemingly puzzling results, such as the fact that in the $2$-adic sense
+
+
+$$1 + 2 + 2^2 + 2^3 + 2^4 + \cdots=\frac{1}{1-2}=-1$$
+
+makes sense, based on the fact that the added values (in $2$-adic) are getting smaller and smaller. This is presented by 3B1B in [here](https://youtu.be/XFDM1ip5HdU?si=dQpqMighSDTuanK8).
+
 ---
 
 #### Fractions:
