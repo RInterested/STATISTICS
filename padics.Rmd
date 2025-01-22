@@ -49,6 +49,15 @@ $$1 + 2 + 2^2 + 2^3 + 2^4 + \cdots=\frac{1}{1-2}=-1$$
 
 makes sense, based on the fact that the added values (in $2$-adic) are getting smaller and smaller. This is presented by 3B1B in [here](https://youtu.be/XFDM1ip5HdU?si=dQpqMighSDTuanK8).
 
+Examples in $\mathbb Q_5$
+
+$$
+(1)_{\mathbb Q_5} =1\\
+(5)_{\mathbb Q_5} = (0+ 1\times 5)_{\mathbb Q_5}=10\\
+(-1)_{\mathbb Q_5}=(4 + 4 \cdot 5 + 4 \cdot5^2+\cdots)_{\mathbb Q_5}=...4444
+$$
+because adding $...4444$ to $1$, which is $...000001$ will result in $0$ (additive inverse of one).
+
 ---
 
 #### Fractions:
