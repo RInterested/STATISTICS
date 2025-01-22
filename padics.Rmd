@@ -19,6 +19,31 @@ output:
 
 ---
 
+#### Brief introduction:
+
+From [this YouTube video](https://youtu.be/vdjYiU6skgE?si=CXvf2qg98P_7sv_J):
+
+The definition of the absolute value of the elements in a field determines the metric, which maps two elements of the field to a positive value.
+
+The p-adic absolute value is defined as (for $\alpha \in \mathbb Q$)
+
+
+$$\left| \alpha \right|_p = \left| p^n \, \frac g h \right|_p = p^{-n}$$
+This takes only discrete values $\left|\cdot\right|\in\{p^n:n\in\mathbb Z\}\cup\{0\}$, since $|0|_p=0$.
+
+For instance for $p=11$ and $\alpha =968/9,$
+
+$$\left|  968/9\right|_{11} = \left| 11^2 \, \frac{8}{9} \right|_{11} = 11^{-2}$$
+This results in puzzling results for the metric. For instance, with $p=7$ the distance between $2$ and $3$ is greater than between $28814$ and $2$:
+
+$$\left|  28814-2\right|_{7}= \left|  28812\right|_{7}= \left| 7^4 \, 13 \right|_{7} = 7^{-4}=1/2401$$
+
+whereas
+
+$$\left|  3-2\right|_{7}= \left|  1\right|_{7}= \left| 7^0  \right|_{7} = 7^{0}=1$$
+
+---
+
 #### Fractions:
 
 Simple algorithm compared to long division based on a couple of examples:

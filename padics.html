@@ -379,6 +379,30 @@ MATHEMATICS</strong></h3>
 <div id="calculations-with-p-adics" class="section level3">
 <h3>Calculations with p-adics:</h3>
 <hr />
+<div id="brief-introduction" class="section level4">
+<h4>Brief introduction:</h4>
+<p>From <a href="https://youtu.be/vdjYiU6skgE?si=CXvf2qg98P_7sv_J">this
+YouTube video</a>:</p>
+<p>The definition of the absolute value of the elements in a field
+determines the metric, which maps two elements of the field to a
+positive value.</p>
+<p>The p-adic absolute value is defined as (for <span class="math inline">\(\alpha \in \mathbb Q\)</span>)</p>
+<p><span class="math display">\[\left| \alpha \right|_p = \left| p^n \,
+\frac g h \right|_p = p^{-n}\]</span> This takes only discrete values
+<span class="math inline">\(\left|\cdot\right|\in\{p^n:n\in\mathbb
+Z\}\cup\{0\}\)</span>, since <span class="math inline">\(|0|_p=0\)</span>.</p>
+<p>For instance for <span class="math inline">\(p=11\)</span> and <span class="math inline">\(\alpha =968/9,\)</span></p>
+<p><span class="math display">\[\left|  968/9\right|_{11} = \left| 11^2
+\, \frac{8}{9} \right|_{11} = 11^{-2}\]</span> This results in puzzling
+results for the metric. For instance, with <span class="math inline">\(p=7\)</span> the distance between <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span> is greater than between <span class="math inline">\(28814\)</span> and <span class="math inline">\(2\)</span>:</p>
+<p><span class="math display">\[\left|  28814-2\right|_{7}=
+\left|  28812\right|_{7}= \left| 7^4 \, 13 \right|_{7} =
+7^{-4}=1/2401\]</span></p>
+<p>whereas</p>
+<p><span class="math display">\[\left|  3-2\right|_{7}=
+\left|  1\right|_{7}= \left| 7^0  \right|_{7} = 7^{0}=1\]</span></p>
+<hr />
+</div>
 <div id="fractions" class="section level4">
 <h4>Fractions:</h4>
 <p>Simple algorithm compared to long division based on a couple of
