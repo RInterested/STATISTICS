@@ -79,9 +79,12 @@ Visualization of the p-adic norm as an infinity tree, corresponding to the power
 
 <img width = 600  src = "padic_distance.png">
 
+Here is a similar representation as a tree from [here](https://youtu.be/FnfnlrHBABs?si=6rYsA46aEokLAzPh):
 
 
+<img width = 600  src = "padic_tree.png">
 
+A p-adic integer is a walk up the tree from root to leaf, although one would never get to the leaf since p-adics are infinite expressions.
 
 
 ---
