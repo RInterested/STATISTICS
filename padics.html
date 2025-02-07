@@ -533,17 +533,18 @@ a_4\,p\dots \right)\]</span></p>
 \color{blue}{2}\,\color{red}{3}\,\color{magenta}{1}\,\color{green}{3}\dots  \\[-3pt]
    3 &amp;\enclose{longdiv}{\phantom{0}1}\kern-.2ex \\[-3pt]
       &amp; \underline{-6} &amp;&amp; \hbox{($\color{blue}{2} \times 3 =
-6\equiv 1\mod(5)$)} \\[-3pt]
+6\equiv 1\mod(5)$)}\quad\hbox{($1=3(\color{blue}2 + x_2p^1+
+x_3p^2+\cdots)$)} \\[-3pt]
       &amp;-5\phantom{0}\to -1 &amp;&amp; \hbox{($-5/p = -1\equiv
-4\mod(5)$)}\,\hbox{($-5/p=3(x_1 + x_2p^1+ x_3p^2+\cdots)$)} \\[-3pt]
+4\mod(5)$)}\quad\hbox{($-5/p=3(x_1 + x_2p^1+ x_3p^2+\cdots)$)} \\[-3pt]
       &amp;\phantom{0000000}\underline{-9\phantom{0}} &amp;&amp;
 \hbox{($\color{red}{3} \times 3 =9 \equiv 4 \mod(5)$)} \\[-3pt]
       &amp;\phantom{00000}-10 &amp;\to -2 &amp; \hbox{($-10/p = -2\equiv
-3\mod(5)$)}\,\hbox{($-10/p=3(x_2+ x_3p+\cdots)$)} \\[-3pt]
+3\mod(5)$)}\quad\hbox{($-10/p=3(x_2+ x_3p+\cdots)$)} \\[-3pt]
       &amp;&amp;\phantom{000}\underline{-3} &amp;
 \hbox{($\color{magenta}{1} \times 3 = 3\equiv 3\mod(5)$)} \\[-3pt]
        &amp;&amp;\phantom{00}-5 \to -1 &amp; \hbox{($-5/p = -1\equiv
-4\mod(5)$)}\,\hbox{($-5/p=3(x_3+\cdots)$)} \\[-3pt]
+4\mod(5)$)}\quad\hbox{($-5/p=3(x_3+\cdots)$)} \\[-3pt]
        &amp;&amp;\phantom{00000000}-9 &amp; \hbox{($\color{green}{3}
 \times 3 = 9\equiv 4\mod(5)$)}\\[-3pt]
        &amp;&amp;&amp;\vdots
@@ -642,6 +643,22 @@ print(Qp(3)(1/5))
 <p>whereas base <span class="math inline">\(3\)</span> base expression
 is</p>
 <p><span class="math display">\[0.012101210121\dots_3\]</span></p>
+<p>Notice that the expansion of <span class="math inline">\(5\)</span>
+in <span class="math inline">\(3\)</span>-adic may look similar in
+structure:</p>
+<pre><code>padic_printing.mode(&#39;series&#39;)
+print(Qp(3)(5))
+2\cdot 3^0 + 1\cdot 3^1 + O(3^20)</code></pre>
+<p>but it ends: after a certain coefficient, the rest are all zeros:</p>
+<pre><code>padic_printing.mode(&#39;digits&#39;)
+print(Qp(3)(5))
+...00000000000000000012</code></pre>
+<p>This is the difference between the p-adic expression of an integer
+and a fraction: The p-adic representation of a fraction that is not an
+integer always requires an infinite number of non-zero terms in its
+expansion in powers of p. It cannot be represented by a finite sum of
+powers of p. This is equivalent to saying that the p-adic expansion will
+never terminate with zeros to the left.</p>
 <hr />
 </div>
 <div id="p-adic-expansion-of-integers" class="section level4">
@@ -663,8 +680,8 @@ representation will have only a finite number of non-zero terms,
 effectively reducing to the base-p representation.</p>
 <p>For example, compare the <span class="math inline">\(5\)</span>-adic
 expansion of <span class="math inline">\(233\)</span></p>
-<p><span class="math display">\[...00000000000000001413 = 3 + 5 + 4\cdot
-5^2 + 5^3+\cdots\]</span></p>
+<p><span class="math display">\[...00000000000000001413 = 3 \cdot 3^0 +
+1 \cdot 5^1 + 4\cdot 5^2 + 1\cdot 5^3+\cdots\]</span></p>
 <pre><code>padic_printing.mode(&#39;series&#39;)
 print(Qp(5)(233))
 3 + 5 + 4*5^2 + 5^3 + O(5^20)
