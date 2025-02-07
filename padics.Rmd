@@ -392,6 +392,25 @@ $$...11111111 + ...00000001 = ...000000$$
 
 since in base $2$ and summing from right to left, $1 + 1 = 0$ and we carry $1$ to the left to add it to the $1$ in the second position in the expression of $-1.$
 
+#### Negative integers:
+
+A negative integer can be expressed as the difference between $0$ and a positive integer.
+The coefficients will not be all zeros beyond a certain point as in positive integers, because they represent the "borrowing" that occurs during the subtraction.  However, the representation will still be finite.
+
+Example: 
+
+$2$-adic representation of $-33$: We want to find a $2$-adic number $x$ such that $x + 33 = 0$ (in the $2$-adic field).  We can compute this by finding the inverse of $33$ in the $2$-adic field:
+
+```
+padic_printing.mode('digits')
+print(Qp(2)(33))
+...00000000000000100001
+padic_printing.mode('digits')
+print(Qp(2)(-33))
+...11111111111111011111
+```
+
+
 #### Negative exponents in p-adics:
 
 Negative exponents typically come into play when dealing with fractions or representing very small numbers in the p-adic number system.

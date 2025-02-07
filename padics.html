@@ -712,6 +712,23 @@ carry <span class="math inline">\(1\)</span> to the left to add it to
 the <span class="math inline">\(1\)</span> in the second position in the
 expression of <span class="math inline">\(-1.\)</span></p>
 </div>
+<div id="negative-integers" class="section level4">
+<h4>Negative integers:</h4>
+<p>A negative integer can be expressed as the difference between <span class="math inline">\(0\)</span> and a positive integer. The
+coefficients will not be all zeros beyond a certain point as in positive
+integers, because they represent the “borrowing” that occurs during the
+subtraction. However, the representation will still be finite.</p>
+<p>Example:</p>
+<p><span class="math inline">\(2\)</span>-adic representation of <span class="math inline">\(-33\)</span>: We want to find a <span class="math inline">\(2\)</span>-adic number <span class="math inline">\(x\)</span> such that <span class="math inline">\(x
++ 33 = 0\)</span> (in the <span class="math inline">\(2\)</span>-adic
+field). We can compute this by finding the inverse of <span class="math inline">\(33\)</span> in the <span class="math inline">\(2\)</span>-adic field:</p>
+<pre><code>padic_printing.mode(&#39;digits&#39;)
+print(Qp(2)(33))
+...00000000000000100001
+padic_printing.mode(&#39;digits&#39;)
+print(Qp(2)(-33))
+...11111111111111011111</code></pre>
+</div>
 <div id="negative-exponents-in-p-adics" class="section level4">
 <h4>Negative exponents in p-adics:</h4>
 <p>Negative exponents typically come into play when dealing with
