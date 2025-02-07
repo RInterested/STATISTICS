@@ -721,6 +721,12 @@ appropriately by incorporating terms with negative exponents. Let’s
 consider an example in the <span class="math inline">\(5\)</span>-adic
 system: Let’s take <span class="math inline">\(1/25\)</span>. Convert to
 <span class="math inline">\(5\)</span>-adic Expansion: <span class="math inline">\(1/25=5^{−2}\)</span>.</p>
+<pre><code>padic_printing.mode(&#39;digits&#39;)
+print(Qp(5)(1/25))
+...000000000000000000.01
+padic_printing.mode(&#39;series&#39;)
+print(Qp(5)(1/25))
+5^-2 + O(5^18)</code></pre>
 </div>
 <div id="digits-to-the-right-of-the-period-in-p-adic-expressions-e.g.-.011" class="section level4">
 <h4>Digits to the right of the period in <span class="math inline">\(p\)</span>-adic expressions (e.g. <span class="math inline">\(.011\)</span>):</h4>
