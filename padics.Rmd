@@ -134,28 +134,40 @@ This is mirrored in the p-adics as follows.
 #### Calculating p-adic expansions for fractions ($1/3$ in $5$-adic):
 
 
-$1/3$ in $\mathbb Q_5:$
+Example: calculate what $1/3$ is in $\mathbb Q_5:$
+
+We want to express $1/3$ as a power series:
+
+$$\frac 1 3 = a_0 + a_1\, p + a_2 \, p^2+ \dots  $$
+
+Rearranging:
 
 
 $$1 = 3\left(a_0 + a_1\, p + a_2 \, p^2+ \dots \right) $$
 
-will result in $$a_0= 2$$ 
+If we express it $\mod 5$ the only term that will survive is the first
 
-because $3\times 2 = 6 \equiv 1 \mod(5).$ 
+$$1 = 3\,a_0$$
 
-$$1 = 3\left(2 + a_1\, p + a_2 \, p^2+ \dots \right) $$
 
-Subtracting from both sides:
+and 
 
-$$1 - 6= -5 = 3\left(a_1\, p + a_2 \, p^2+ \dots \right)$$
+$$a_0= 2$$ 
 
-Since we are operating $\mod(5)$ the result on the LHS will be a multiple of $5$. Now dividing by $5$ on both sides:
+because 
 
-$$4 \mod(5) \equiv -1 = 3\left(a_1 + a_2 \, p^1+ \dots \right)$$
+$$3\times 2 = 6 \equiv 1 \mod(5)$$ 
 
-will yield $$a_1 = 3$$ 
+But we want finer refinement (inverse limit). Since the calculated $6$ is congruent to the LHS (i.e. $1$), the difference will be a multiple of $5$:
 
-since $3 \times 3 = 9\equiv 4 \mod(5).$
+$$1 - 6=-5= 3\left(a_1\, p + a_2 \, p^2+ \dots \right) $$
+Now dividing by $5$ on both sides, and since $p=5$:
+
+$$ -1 = 3\left(a_1 + a_2 \, p^1+ \dots \right)$$
+
+Given that $-1 \equiv 4 \mod(5)$, if we look at that equation $\mod 5$, all the powers of $p$ will be zero, allowing us to calculate that $$a_1 = 3$$ 
+
+since $3 \times 3 = 9\equiv 4 \mod(5).$ Note that the fact that the terms containing powers of $p$ go to zero doesn't imply that the coefficients are zero.
 
 Rinse and repeat:
 

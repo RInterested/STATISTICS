@@ -492,24 +492,40 @@ cetera.</p>
 </div>
 <div id="calculating-p-adic-expansions-for-fractions-13-in-5-adic" class="section level4">
 <h4>Calculating p-adic expansions for fractions (<span class="math inline">\(1/3\)</span> in <span class="math inline">\(5\)</span>-adic):</h4>
-<p><span class="math inline">\(1/3\)</span> in <span class="math inline">\(\mathbb Q_5:\)</span></p>
+<p>Example: calculate what <span class="math inline">\(1/3\)</span> is
+in <span class="math inline">\(\mathbb Q_5:\)</span></p>
+<p>We want to express <span class="math inline">\(1/3\)</span> as a
+power series:</p>
+<p><span class="math display">\[\frac 1 3 = a_0 + a_1\, p + a_2 \, p^2+
+\dots  \]</span></p>
+<p>Rearranging:</p>
 <p><span class="math display">\[1 = 3\left(a_0 + a_1\, p + a_2 \, p^2+
 \dots \right) \]</span></p>
-<p>will result in <span class="math display">\[a_0= 2\]</span></p>
-<p>because <span class="math inline">\(3\times 2 = 6 \equiv 1
-\mod(5).\)</span></p>
-<p><span class="math display">\[1 = 3\left(2 + a_1\, p + a_2 \, p^2+
-\dots \right) \]</span></p>
-<p>Subtracting from both sides:</p>
-<p><span class="math display">\[1 - 6= -5 = 3\left(a_1\, p + a_2 \, p^2+
-\dots \right)\]</span></p>
-<p>Since we are operating <span class="math inline">\(\mod(5)\)</span>
-the result on the LHS will be a multiple of <span class="math inline">\(5\)</span>. Now dividing by <span class="math inline">\(5\)</span> on both sides:</p>
-<p><span class="math display">\[4 \mod(5) \equiv -1 = 3\left(a_1 + a_2
-\, p^1+ \dots \right)\]</span></p>
-<p>will yield <span class="math display">\[a_1 = 3\]</span></p>
+<p>If we express it <span class="math inline">\(\mod 5\)</span> the only
+term that will survive is the first</p>
+<p><span class="math display">\[1 = 3\,a_0\]</span></p>
+<p>and</p>
+<p><span class="math display">\[a_0= 2\]</span></p>
+<p>because</p>
+<p><span class="math display">\[3\times 2 = 6 \equiv 1
+\mod(5)\]</span></p>
+<p>But we want finer refinement (inverse limit). Since the calculated
+<span class="math inline">\(6\)</span> is congruent to the LHS
+(i.e. <span class="math inline">\(1\)</span>), the difference will be a
+multiple of <span class="math inline">\(5\)</span>:</p>
+<p><span class="math display">\[1 - 6=-5= 3\left(a_1\, p + a_2 \, p^2+
+\dots \right) \]</span> Now dividing by <span class="math inline">\(5\)</span> on both sides, and since <span class="math inline">\(p=5\)</span>:</p>
+<p><span class="math display">\[ -1 = 3\left(a_1 + a_2 \, p^1+ \dots
+\right)\]</span></p>
+<p>Given that <span class="math inline">\(-1 \equiv 4 \mod(5)\)</span>,
+if we look at that equation <span class="math inline">\(\mod 5\)</span>,
+all the powers of <span class="math inline">\(p\)</span> will be zero,
+allowing us to calculate that <span class="math display">\[a_1 =
+3\]</span></p>
 <p>since <span class="math inline">\(3 \times 3 = 9\equiv 4
-\mod(5).\)</span></p>
+\mod(5).\)</span> Note that the fact that the terms containing powers of
+<span class="math inline">\(p\)</span> go to zero doesn’t imply that the
+coefficients are zero.</p>
 <p>Rinse and repeat:</p>
 <p><span class="math display">\[-1 - 9= -10 = 3\left(a_2\, p + a_3 \,
 p^2+ \dots \right)\]</span></p>
