@@ -211,6 +211,9 @@ $$
   \end{array}
 $$
 
+$$\left(1/3 \right)_{\mathbb Q_5}= 2 + 3 \cdot 5 + 1 \cdot 5^2 + 3 \cdot 5^3 + \cdots$$
+Notice that the algorithm keeps reducing the remainder modulo $5$, as we get the coefficients for higher and higher $p^n$ values. This is akin to adding a $0$ to the remainder to keep dividing $1$ into $3$ in the process of getting the decimal expression of $1/3,$ with each $0$ added to the remainder equivalently contributing to higher and higher $10^{-n}$ values in the decimal expression.
+
 
 In SageMath:
 
