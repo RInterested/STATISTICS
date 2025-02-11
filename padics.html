@@ -860,6 +860,30 @@ print(Qp(2)(1/24))
 padic_printing.mode(&#39;series&#39;)
 print(Qp(2)(1/24))
 2^-3 + 2^-2 + 1 + 2^2 + 2^4 + 2^6 + 2^8 + 2^10 + 2^12 + 2^14 + 2^16 + O(2^17)</code></pre>
+</div>
+<div id="p-adic-use-in-computers" class="section level4">
+<h4>p-adic use in computers:</h4>
+<p>Suppose our computer stores the following 5-adic number: <span class="math inline">\(...4321\)</span> (where the digits extend
+infinitely to the left). However, the computer can only store the last
+four digits: <span class="math inline">\(4321\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Interpretation as a Base-5 Number:</li>
+</ol>
+<p>We treat the stored digits, <span class="math inline">\(4321\)</span>, as a base-<span class="math inline">\(5\)</span> number.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Conversion to Base-10 (Decimal):</li>
+</ol>
+<p>We convert this base-5 number to its decimal (base-10)
+equivalent:</p>
+<p><span class="math inline">\(4 * 5³ + 3 * 5² + 2 * 5¹ + 1 * 5⁰ = 4 *
+125 + 3 * 25 + 2 * 5 + 1 * 1 = 500 + 75 + 10 + 1 = 586\)</span></p>
+<p>Computers typically use floating-point representation for real
+numbers. This allows them to represent a wide range of numbers, both
+very small and very large, with reasonable precision. Computer hardware
+is designed to perform arithmetic on binary numbers, which are used to
+represent integers and floating-point numbers. There is no direct
+hardware support for p-adic arithmetic. Any p-adic calculations would
+have to be implemented in software, which would be slower.</p>
 <hr />
 </div>
 <div id="hensels-lemma" class="section level4">

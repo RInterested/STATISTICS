@@ -510,6 +510,23 @@ print(Qp(2)(1/24))
 2^-3 + 2^-2 + 1 + 2^2 + 2^4 + 2^6 + 2^8 + 2^10 + 2^12 + 2^14 + 2^16 + O(2^17)
 ```
 
+#### p-adic use in computers:
+
+Suppose our computer stores the following 5-adic number:  $...4321$ (where the digits extend infinitely to the left).  However, the computer can only store the last four digits: $4321$.
+
+1. Interpretation as a Base-5 Number:
+
+We treat the stored digits, $4321$, as a base-$5$ number.
+
+2. Conversion to Base-10 (Decimal):
+
+We convert this base-5 number to its decimal (base-10) equivalent:
+
+$4 * 5³ + 3 * 5² + 2 * 5¹ + 1 * 5⁰ = 4 * 125 + 3 * 25 + 2 * 5 + 1 * 1 = 500 + 75 + 10 + 1 = 586$
+
+Computers typically use floating-point representation for real numbers. This allows them to represent a wide range of numbers, both very small and very large, with reasonable precision. Computer hardware is designed to perform arithmetic on binary numbers, which are used to represent integers and floating-point numbers. There is no direct hardware support for p-adic arithmetic. Any p-adic calculations would have to be implemented in software, which would be slower.
+
+
 ---
 
 #### Hensel's lemma:
