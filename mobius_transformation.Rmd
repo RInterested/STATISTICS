@@ -141,6 +141,13 @@ And here is the Poincaré disk:
 
 <img width = 500  src = "modular_form_poincare.png">
 
+
+The patterns you see in the Poincaré disk plot are essentially visualizations of the equivalence classes of points under the modular group. The "fractal" patterns arise from the intricate way the fundamental domain tiles the upper half-plane and how these tiles map to the Poincaré disk. The FD tiles the upper half-plane. This tiling (tessellation) represents the equivalence classes of points under the modular group.
+
+Symmetry in the Disk: Even though we're calculating in the FD, the symmetries of the modular form are reflected in the Poincaré disk plot.
+
+The colors in the disk are based on the information that was calculated from the FD, but the placement of those colors are determined by the initial grid that was created in the Poincare disk.
+
 The visual advantage of the distortion introduced by mapping the upper half-plane (H) to the Poincaré disk is primarily about compactness and global visualization. Here's a breakdown:
 
 1. Compact Representation:
@@ -168,6 +175,7 @@ Symmetry and Harmony: The circular symmetry of the disk often enhances the visua
 4. Computational Advantages:
 
 Finite Domain: Working within a finite domain (the Poincaré disk) can sometimes simplify numerical computations and plotting algorithms.
+
 
 ---
 <a href="http://rinterested.github.io/statistics/index.html">Home Page</a>
