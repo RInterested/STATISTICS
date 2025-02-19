@@ -133,6 +133,41 @@ wt = 2
 ModularForms(11, 2).basis()[0]
 q - 2*q^2 - q^3 + 2*q^4 + q^5 + O(q^6)
 ```
+Here is the standard Cartesian plot:
+
+<img width = 600  src = "modular_form_standard.png">
+
+And here is the Poincaré disk:
+
+<img width = 500  src = "modular_form_poincare.png">
+
+The visual advantage of the distortion introduced by mapping the upper half-plane (H) to the Poincaré disk is primarily about compactness and global visualization. Here's a breakdown:
+
+1. Compact Representation:
+
+Infinity to Boundary: The upper half-plane extends infinitely in all directions. The Poincaré disk, on the other hand, is a finite, bounded region. This allows us to represent the entire upper half-plane (or at least a large portion of it) within a finite space. 
+
+Complete View: This compact representation makes it possible to visualize the global structure of modular forms and their symmetries in a single, coherent image.
+
+Visualizing Cusps: The "cusp" of the upper half-plane (infinity) is mapped to the boundary of the Poincaré disk. This allows us to visualize the behavior of modular forms near the cusp, which is often crucial for understanding their properties.
+
+2. Visualizing Symmetries:
+
+Conformal Mapping: The mapping from H to the Poincaré disk is a conformal mapping, which means it preserves angles. This is important because it preserves the local geometric properties of the modular forms. 
+
+Global Symmetries: Even though the shapes of the tiles are distorted, the overall symmetries of the modular forms are still visible. The patterns in the Poincaré disk plot reflect the symmetries of the modular group and the modular form itself.
+
+Whole Picture: The distortion allows the viewer to see the whole picture. If the image was created in the upper half plane, then the image would need to be infinitely large to display the same information.
+
+3. Aesthetic Appeal:
+
+Circular Boundary: The circular boundary of the Poincaré disk provides a visually appealing and natural frame for the plot.
+
+Symmetry and Harmony: The circular symmetry of the disk often enhances the visual harmony of the patterns, making them more aesthetically pleasing.
+
+4. Computational Advantages:
+
+Finite Domain: Working within a finite domain (the Poincaré disk) can sometimes simplify numerical computations and plotting algorithms.
 
 ---
 <a href="http://rinterested.github.io/statistics/index.html">Home Page</a>
