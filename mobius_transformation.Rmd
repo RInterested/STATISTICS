@@ -33,8 +33,21 @@ In order to plot this transformation using Cartesian coordinates on a computer p
 
 Using [this post](https://math.stackexchange.com/q/1583277/152225):
 
+If
+
+* $Z$ is a point $(x, y)$, equivalent to the complex number $x+ yi$ 
+* $A = a_r + a_i i$
+* $B = b_r + b_i i$
+* $C = c_r + c_i i$
+* $D = d_r + d_i i$
+
+(so $Z, A, B, C, D$ are complex numbers, while 
+$x, y, a_r, a_i, b_r, b_i, c_r,  c_i, d_r, d_i$ are real numbers)
+
+
 $$\begin{align}
-&\frac {(a_r x - a_i y ) + (a_i x + a_r y) i + b_r + b_i i}
+f(Z)  &=   \frac{AZ+B}{CZ+D}\\[3ex]
+=&\frac {(a_r x - a_i y ) + (a_i x + a_r y) i + b_r + b_i i}
 {(c_r x - c_i y) + (c_i x + c_r y) i + d_r + d_i i} \\[3ex]
 =
 &\frac {(a_r x - a_i y ) + (a_i x + a_r y) i + b_r + b_i i}
