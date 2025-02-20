@@ -199,9 +199,19 @@ $$h=\frac{1 - iz}{z - i}$$
 
 $$w = \frac{z - i}{z + i}$$
 
-As a result of this inverse transformation, the points will appear skewed and roughly circular, but distorted. This is the effect of a Möbius transformation.
+ As a result of this inverse transformation, the points will appear skewed and roughly circular, but distorted. This is the effect of a Möbius transformation.
 
 <img width = 500  src = "inverse_Mobius_transformation.png">
+
+ The specific form of `DtoH` used in the code, `DtoH(x) = (-I * x + 1) / (x - I)`, is a particular case of a more general class of transformations called Möbius transformations (or fractional linear transformations).
+
+Here's the breakdown of why this works and the underlying principles:
+
+Möbius Transformations: Möbius transformations are functions of the form:
+
+$$f(z) = (az + b) / (cz + d)$$
+
+where $a, b, c$, and $d$ are complex numbers, and $ad - bc ≠ 0$ (this condition ensures the transformation is invertible). Möbius transformations have several important properties: They map circles and lines to circles and lines.1 This is crucial because the boundary of the unit disk is a circle, and the boundary of the upper half-plane (the real axis) is a line. They are conformal and bijective. To map the unit disk to the upper half-plane, you need to find a Möbius transformation that takes the boundary of the unit disk ($|z| = 1$) to the real axis $Im(z) = 0$. There are infinitely many such transformations. The specific `DtoH` transformation used in the code is just one example. 
 
  * The second step will be to transform these points in the upper half-plane into points in the fundamental domain, which will be between $-1/2$ and $1/2$ in the real line, and will exclude a semi-circular area around the origin.
  
