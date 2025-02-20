@@ -189,6 +189,140 @@ Symmetry and Harmony: The circular symmetry of the disk often enhances the visua
 
 Finite Domain: Working within a finite domain (the Poincaré disk) can sometimes simplify numerical computations and plotting algorithms.
 
+#### Code analysis of the Poincaré disk plot:
+
+ * It starts with the points in a disk centered at the origin. This is where the output will be displayed with color mapping (hue representing phase, and brightness, absolute value). However, the calculations will be carried out in the upper half-plane $\mathbb H.$ To this effect, the points in the disk will undergo a Möbius transformation of the form:
+
+$$h=\frac{1 - iz}{z - i}$$
+
+ This formula is the inverse of the standard transformation from the upper half-plane to the Poincaré disk:
+
+$$w = \frac{z - i}{z + i}$$
+
+As a result of this inverse transformation, the points will appear skewed and roughly circular, but distorted. This is the effect of a Möbius transformation.
+
+<img width = 500  src = "inverse_Mobius_transformation.png">
+
+ * The second step will be to transform these points in the upper half-plane into points in the fundamental domain, which will be between $-1/2$ and $1/2$ in the real line, and will exclude a semi-circular area around the origin.
+ 
+  The fundamental domain is designed to contain exactly one representative from each equivalence class under the action of a group.  Points are considered equivalent if they can be transformed into each other by a group action.  If multiple equivalent points fall within the fundamental domain, it violates this principle of unique representation. 
+
+Let's consider a simplified example to illustrate the idea. Imagine a group that acts on the plane by rotations of multiples of $90$ degrees around the origin.  We want to define a fundamental domain for this group action. If we naively choose the entire plane as our "fundamental domain," then we clearly have multiple equivalent points. For example, a point at $(1,0)$, $(0,1)$, $(-1,0)$, and $(0,-1)$ are all equivalent under the rotation group, but they are all distinct points in the plane. A better choice for a fundamental domain would be, say, the region defined by $0 \leq \theta < 90$ degrees.
+
+The region near the origin in the upper half-plane is a region where these group actions can "overlap" or "fold over" in a way that causes multiple equivalent points to fall within it. The transformations that define the group action (e.g., the modular group or related groups) often involve a combination of scaling, inversion, and translation in the complex plane.  Consider the transformation $z \to -1/z$, which is part of the modular group. This transformation inverts points and reflects them across the imaginary axis. Points close to the origin are mapped to points far away, and vice-versa. This kind of transformation can cause significant "folding" near the origin.
+
+Here is the appearance of the final position of the dots in the FD:
+
+<img width = 600  src = "fundamental_domain.png">
+
+This transformation is based on the group action $\circlearrowright$ on points $\tau \in \mathbb H.$ The matrix $\small \begin{bmatrix}1&-1/2\\0&1\end{bmatrix}$ will bring point along the positive axis towards the left via the action:
+
+$$\begin{bmatrix}a&b\\c&d\end{bmatrix}\circlearrowright\tau = \frac{a\tau + b}{c\tau+d}=\frac{z -1/2}{z}$$
+
+and if they are less than $1$ unit from the origin, they will reflect them outside the unit circle with the transformation $-1/z,$ corresponding to the action of the matrix $\small \begin{bmatrix}0&-1\\1&0\end{bmatrix}$:
+
+$$\begin{bmatrix}a&b\\c&d\end{bmatrix}\circlearrowright\tau = \frac{a\tau + b}{c\tau+d}=\frac{ -1}{z}$$
+ * Modular forms have a Fourier expansion, often called the $q$-expansion, where $q$ is related to $\tau$ (a complex number in the upper half-plane) by $q = \exp(2πi\tau)$. The polynomial (which is an approximation of the modular form) is being evaluated at this $q$ value. This is because the modular form is often expressed and computed in terms of its $q$-expansion.
+ 
+ With the FD is comprised between $-1/2$ and $1/2$ in the real line, and between $0$ and $~ 2$ in the imaginary line (see plot above), the transformation $\exp(2\pi i \tau)$ of $\tau = a + bi$ will be $\exp(2\pi i (a+bi))= \exp(-2\pi b) \exp(2\pi\ i a)$, which can be very small for a value with an imaginary part slightly above $1$, say for example $b = 2$, $\exp(-2 \pi 2) ~ 3.5\times 10^{-6}$, leading to potential numerical instability, and the need for high-precision arithmetic libraries. On the other hand, small values of $q$ can make the infinite series decay fast, leading to more accurate calculations with fewer terms.
+ 
+ Here is the clustering around small values that takes place when this transformation is carried out:
+ 
+ <img width = 600  src = "q_transformation.png">
+ 
+  * The `pullback` function's purpose it to find a matrix $\gamma = [[a, b], [c, d]]$ in $\text{SL}(2, \mathbb Z)$ such that $γ(z)$ (the action of $γ$ on $z$) lies within the fundamental domain. Crucially, the function returns both the transformation $γ$ and the transformed value $z$. However, it constructs the transformation matrix such that it represents the inverse of the transformation needed to bring $z$ to the fundamental domain. This is done so that when you apply $γ$ to the transformed $z$ (which is already in the fundamental domain), you can return to the original $z$.
+  
+  **Modularity Factor**: The modularity factor is $(cz + d)ᵏ$. But because the pullback function returns the inverse transformation, and because matrix multiplication is not commutative, the code needs to use the correct modularity factor.
+
+Let's say the transformation that takes $z$ into the fundamental domain is represented by the matrix $[[A, B], [C, D]]$. Then the modularity factor when evaluating the modular form at the transformed point would be $(Cz + D)ᵏ$. The pullback function, however, returns the inverse transformation matrix, $[[D, -B], [-C, A]]$ (remember that the special group has determinant $1$). So, if we were to apply the inverse transformation to a point already in the fundamental domain to get the original point z, the modularity factor would be $(-Cz + A)^k$.
+
+Here is the code:
+
+```
+# https://math.stackexchange.com/a/4309925/152225
+
+import cmath
+
+Htoq = lambda x: exp(2 * CDF.pi() * CDF.0 * x)
+DtoH = lambda x: (-CDF.0 * x + 1) / (x - CDF.0)
+
+C.<t> = CC[]
+
+lv = 11
+wt = 2
+M4 = ModularForms(lv, wt)
+f = M4.basis()[0]
+coeffs = f.coefficients(list(range(20))) 
+fpoly = C(coeffs)
+
+def in_fund_domain(z):
+    x = z.real()
+    y = z.imag()
+    if x < -0.51 or x > 0.51:
+        return False
+    if x*x + y*y < 0.99:
+        return False
+    return True
+
+def act(gamma, z):
+    a, b, c, d = gamma
+    return (a*z + b) / (c*z + d)
+
+def mult_matrices(mat1, mat2):
+    a, b, c, d = mat1
+    A, B, C, D = mat2
+    return [a*A + b*C, a*B + b*D, c*A + d*C, c*B + d*D]
+
+Id = [1, 0, 0, 1]
+
+def pullback(z):
+    """
+    Returns gamma, w such that gamma(z) = w and w is
+    (essentially) in the fundamental domain.
+    """
+    z = CDF(z)
+    gamma = Id
+    count = 1
+    while not in_fund_domain(z):
+        count += 1
+        x, y = z.real(), z.imag()
+        xshift = -floor(x + 0.5)
+        shiftmatrix = [1, xshift, 0, 1]
+        gamma = mult_matrices(shiftmatrix, gamma)
+        z = act(shiftmatrix, z)
+        if x*x + y*y < 0.99:
+            z = -1/z
+            gamma = mult_matrices([0, -1, 1, 0], gamma)
+    return gamma, z
+
+#def smart_compute(z):
+#    gamma, z = pullback(DtoH(z))
+#    a, b, c, d = gamma
+#    scale = 1000
+#    return (-c*z + a)**wt * fpoly(Htoq(z)) * scale
+
+def smart_compute(z, scale=1e6, log_scale=100): #Added log_scale
+    gamma, z = pullback(DtoH(z))
+    a, b, c, d = gamma
+    value = (-c*z + a)**wt * fpoly(Htoq(z)) * scale
+    if abs(value) > 0:
+        return cmath.log(abs(value) * log_scale) * cmath.exp(cmath.phase(value)*1j)
+    else:
+        return 0
+
+pts = 300
+P = complex_plot(
+  lambda z: 0 if abs(z) >= 0.9
+            else smart_compute(z) * exp(1.2 * CDF.pi() * CDF.0),
+  (-1, 1), (-1, 1), aspect_ratio=1, figsize=[8, 8],
+  plot_points=pts)
+
+P.axes(show=False)
+P
+```
+
+
+
 
 ---
 <a href="http://rinterested.github.io/statistics/index.html">Home Page</a>
